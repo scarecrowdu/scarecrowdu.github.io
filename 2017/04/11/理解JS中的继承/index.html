@@ -1,0 +1,833 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/css/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x4E4B;&amp;#x7EE7;&amp;#x627F;&amp;#x7406;&amp;#x89E3;&amp;#x8F83;&amp;#x4E3A;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x7EE7;&amp;#x627F;&amp;#x6709;&amp;#x539F;&amp;#x578B;&amp;#x94FE;&amp;#x7EE7;&amp;#x627F;&amp;#x3001;&amp;#x501F;&amp;#x7528;">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="理解JS中的继承">
+<meta property="og:url" content="http://yoursite.com/2017/04/11/理解JS中的继承/index.html">
+<meta property="og:site_name" content="vincentSea">
+<meta property="og:description" content="&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x4E4B;&amp;#x7EE7;&amp;#x627F;&amp;#x7406;&amp;#x89E3;&amp;#x8F83;&amp;#x4E3A;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x7EE7;&amp;#x627F;&amp;#x6709;&amp;#x539F;&amp;#x578B;&amp;#x94FE;&amp;#x7EE7;&amp;#x627F;&amp;#x3001;&amp;#x501F;&amp;#x7528;">
+<meta property="og:updated_time" content="2017-06-01T02:10:15.471Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="理解JS中的继承">
+<meta name="twitter:description" content="&amp;#x9762;&amp;#x5411;&amp;#x5BF9;&amp;#x8C61;&amp;#x4E4B;&amp;#x7EE7;&amp;#x627F;&amp;#x7406;&amp;#x89E3;&amp;#x8F83;&amp;#x4E3A;&amp;#x5E38;&amp;#x7528;&amp;#x7684;&amp;#x7EE7;&amp;#x627F;&amp;#x6709;&amp;#x539F;&amp;#x578B;&amp;#x94FE;&amp;#x7EE7;&amp;#x627F;&amp;#x3001;&amp;#x501F;&amp;#x7528;">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/11/理解JS中的继承/"/>
+
+
+
+
+
+  <title> 理解JS中的继承 | vincentSea </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">vincentSea</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个来自文科班子的码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/11/理解JS中的继承/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vincentSea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/16203604.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="vincentSea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                理解JS中的继承
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-11T10:08:01+08:00">
+                2017-04-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/04/11/理解JS中的继承/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E4B;&#x7EE7;&#x627F;&#x7406;&#x89E3;</strong><br>&#x8F83;&#x4E3A;&#x5E38;&#x7528;&#x7684;&#x7EE7;&#x627F;&#x6709;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;&#x3001;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3001;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x3001;&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#xFF0C;&#x4EE5;&#x53CA;ES6&#x7EE7;&#x627F;&#xFF0C;&#x5176;&#x4ED6;&#x7684;&#x8FD8;&#x6709;&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;&#x3001;&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;</p>
+<h2 id="&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;"><a href="#&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;" class="headerlink" title="&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;"></a>&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;</h2><ul>
+<li>js&#x4EE5;&#x539F;&#x578B;&#x94FE;&#x4F5C;&#x4E3A;&#x5B9E;&#x73B0;&#x7EE7;&#x627F;&#x7684;&#x4E3B;&#x8981;&#x65B9;&#x6CD5;</li>
+<li>&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#x5229;&#x7528;&#x539F;&#x578B;&#x94FE;&#x8BA9;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7EE7;&#x627F;&#x53E6;&#x4E00;&#x4E2A;&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x7684;&#x5C5E;&#x6027;&#x548C;&#x65B9;&#x6CD5;</li>
+<li>&#x6784;&#x9020;&#x51FD;&#x6570;&#x3001;&#x539F;&#x578B;&#x3001;&#x5B9E;&#x4F8B;&#x7684;&#x5173;&#x7CFB;<ul>
+<li>&#x6BCF;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x539F;&#x578B;&#x5BF9;&#x8C61;</li>
+<li>&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x5B9E;&#x4F8B;&#x90FD;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x6307;&#x5411;&#x539F;&#x578B;&#x5BF9;&#x8C61;&#x7684;&#x4E00;&#x4E2A;&#x6307;&#x9488;</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x7236;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">10</span>;</div><div class="line">}</div><div class="line"></div><div class="line">Parent.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;parent name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x5B50;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x4F7F;&#x7528;&#x539F;&#x578B;&#x94FE;&#x7EE7;&#x627F;Parent&#x6784;&#x9020;&#x51FD;&#x6570;</span></div><div class="line">Child.prototype = <span class="keyword">new</span> Parent(<span class="string">&apos;father&apos;</span>);</div><div class="line"><span class="comment">// constructor&#x5C5E;&#x6027;&#xFF0C;&#x6307;&#x5411;&#x5F53;&#x524D;&#x7684;Child&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</span></div><div class="line">Child.prototype.constructor = Child;</div><div class="line"></div><div class="line">Child.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;child name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">// &#x8C03;&#x7528;&#x7236;&#x7C7B;</span></div><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">&apos;father&apos;</span>);</div><div class="line">parent.sayName(); <span class="comment">// parent name is father!</span></div><div class="line"></div><div class="line"><span class="comment">// &#x8C03;&#x7528;&#x5B50;&#x7C7B;</span></div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">&apos;son&apos;</span>);</div><div class="line">child.sayName(); <span class="comment">// child name is son!</span></div><div class="line">child.age = <span class="number">18</span>;</div><div class="line"><span class="built_in">console</span>.log(child.age); <span class="comment">// 18</span></div></pre></td></tr></table></figure>
+<p><strong>&#x53EA;&#x8981;&#x662F;&#x539F;&#x578B;&#x94FE;&#x4E2D;&#x51FA;&#x73B0;&#x8FC7;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x90FD;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;&#x8BE5;&#x539F;&#x578B;&#x94FE;&#x6D3E;&#x751F;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x539F;&#x578B;&#x3002;</strong></p>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ul>
+<li>&#x5B50;&#x7C7B;&#x578B;&#x65E0;&#x6CD5;&#x7ED9;&#x8D85;&#x7C7B;&#x578B;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7EE7;&#x627F;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x603B;&#x5E0C;&#x671B;&#x901A;&#x8FC7; var child = new Child(&#x2018;son&#x2019;, &#x2018;father&#x2019;); &#x8BA9;&#x5B50;&#x7C7B;&#x53BB;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x5668;&#x6765;&#x5B8C;&#x6210;&#x7EE7;&#x627F;&#x3002;&#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x50CF;&#x8FD9;&#x6837; new Parent(&#x2018;father&#x2019;) &#x53BB;&#x8C03;&#x7528;&#x7236;&#x7C7B;&#x3002;</li>
+<li>Child.prototype.sayName &#x5FC5;&#x987B;&#x5199;&#x5728; Child.prototype = new Parent(&#x2018;father&#x2019;); &#x4E4B;&#x540E;&#xFF0C;&#x4E0D;&#x7136;&#x5C31;&#x4F1A;&#x88AB;&#x8986;&#x76D6;&#x6389;&#x3002;</li>
+</ul>
+<h2 id="&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;-&#x7C7B;&#x5F0F;&#x7EE7;&#x627F;"><a href="#&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;-&#x7C7B;&#x5F0F;&#x7EE7;&#x627F;" class="headerlink" title="&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570; (&#x7C7B;&#x5F0F;&#x7EE7;&#x627F;)"></a>&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570; (&#x7C7B;&#x5F0F;&#x7EE7;&#x627F;)</h2><ul>
+<li>&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x901A;&#x8FC7;call,apply &#x6539;&#x53D8;&#x5BF9;&#x8C61;&#x7684;this&#x6307;&#x5411;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x7236;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">10</span>;</div><div class="line">}</div><div class="line"></div><div class="line">Parent.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;parent name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line">Parent.prototype.doSomthing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;parent do something!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x5B50;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="comment">// &#x901A;&#x8FC7;call,apply &#x6539;&#x53D8;&#x5BF9;&#x8C61;&#x7684;this&#x6307;&#x5411;&#x6765;&#x7EE7;&#x627F;</span></div><div class="line">    Parent.call(<span class="keyword">this</span>, name);</div><div class="line">    <span class="comment">// Parent.apply(this, arguments);</span></div><div class="line">}</div><div class="line"></div><div class="line">Child.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;child name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">&apos;son&apos;</span>);</div><div class="line">child.sayName(); <span class="comment">// child name: son</span></div><div class="line">child.doSomthing(); <span class="comment">// TypeError: child.doSomthing is not a function</span></div></pre></td></tr></table></figure>
+<p><strong>&#x76F8;&#x5F53;&#x4E8E; Parent &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5728; Child &#x51FD;&#x6570;&#x4E2D;&#x6267;&#x884C;&#x4E86;&#x4E00;&#x904D;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x6240;&#x6709;&#x4E0E; this &#x7ED1;&#x5B9A;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x5207;&#x6362;&#x5230;&#x4E86; Child &#x4E0A;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x514B;&#x670D;&#x4E86;&#x7B2C;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;&#x3002;</strong></p>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ul>
+<li>&#x6CA1;&#x6709;&#x539F;&#x578B;&#xFF0C;&#x6BCF;&#x6B21;&#x521B;&#x5EFA;&#x4E00;&#x4E2A; Child &#x5B9E;&#x4F8B;&#x5BF9;&#x8C61;&#x65F6;&#x5019;&#x90FD;&#x9700;&#x8981;&#x6267;&#x884C;&#x4E00;&#x904D; Parent &#x51FD;&#x6570;&#xFF0C;&#x65E0;&#x6CD5;&#x590D;&#x7528;&#x4E00;&#x4E9B;&#x516C;&#x7528;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+<h2 id="&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;-&#x539F;&#x578B;-&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;"><a href="#&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;-&#x539F;&#x578B;-&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;" class="headerlink" title="&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;(&#x539F;&#x578B;+&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;)"></a>&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;(&#x539F;&#x578B;+&#x6784;&#x9020;&#x51FD;&#x6570;&#x7EE7;&#x627F;)</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x7236;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.age = <span class="number">10</span>;</div><div class="line">}</div><div class="line"></div><div class="line">Parent.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;parent name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line">Parent.prototype.doSomthing = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;parent do something!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x5B50;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="comment">// &#x901A;&#x8FC7;call,apply &#x6539;&#x53D8;&#x5BF9;&#x8C61;&#x7684;this&#x6307;&#x5411;&#x6765;&#x7EE7;&#x627F;</span></div><div class="line">    Parent.call(<span class="keyword">this</span>, name);  <span class="comment">// &#x7B2C;&#x4E8C;&#x6B21;&#x8C03;&#x7528; </span></div><div class="line">    <span class="comment">// Parent.apply(this, arguments);</span></div><div class="line">}</div><div class="line"></div><div class="line">Child.prototype = <span class="keyword">new</span> Parent(<span class="string">&apos;father&apos;</span>);  <span class="comment">// &#x7B2C;&#x4E00;&#x6B21;&#x8C03;&#x7528;</span></div><div class="line">Child.prototype.constructor = Child;</div><div class="line"></div><div class="line">Child.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;child name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> child = <span class="keyword">new</span> Child(<span class="string">&apos;son&apos;</span>);</div><div class="line">child.sayName(); <span class="comment">// child name: son</span></div><div class="line">child.doSomthing(); <span class="comment">// parent do something!</span></div></pre></td></tr></table></figure>
+<p><strong>&#x7F3A;&#x70B9;&#xFF1A;</strong></p>
+<ul>
+<li>&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x662F; JS &#x6700;&#x5E38;&#x7528;&#x7684;&#x7EE7;&#x627F;&#x6A21;&#x5F0F;&#xFF0C;&#x4F46;&#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x4F7F;&#x7528;&#x8FC7;&#x7A0B;&#x4E2D;&#x4F1A;&#x88AB;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#xFF1A;&#x4E00;&#x6B21;&#x662F;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x578B;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x53E6;&#x4E00;&#x6B21;&#x662F;&#x5728;&#x5B50;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x3002;</li>
+</ul>
+<h2 id="&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;"><a href="#&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;" class="headerlink" title="&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;"></a>&#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;</h2><ul>
+<li>&#x57FA;&#x4E8E;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0A;,&#x8FD9;&#x4E2A;&#x5BF9;&#x8C61;&#x76F8;&#x5F53;&#x4E8E;&#x4F5C;&#x4E3A;&#x539F;&#x578B;&#xFF0C;&#x518D;&#x6839;&#x636E;&#x9700;&#x6C42;&#x5BF9;&#x5F97;&#x5230;&#x7684;&#x5BF9;&#x8C61;&#x52A0;&#x4EE5;&#x4FEE;&#x6539;</li>
+<li>&#x5728;&#x6CA1;&#x6709;&#x5FC5;&#x8981;&#x5174;&#x5E08;&#x52A8;&#x4F17;&#x521B;&#x5EFA;&#x6784;&#x9020;&#x51FD;&#x6570;&#xFF0C;&#x800C;&#x53EA;&#x60F3;&#x8BA9;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4E0E;&#x53E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x4FDD;&#x6301;&#x7C7B;&#x4F3C;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ob = { <span class="attr">name</span>: <span class="string">&apos;&#x674E;&#x8FBE;&#x5EB7;&apos;</span>, <span class="attr">friends</span>: [<span class="string">&apos;&#x6C99;&#x745E;&#x91D1;&apos;</span>, <span class="string">&apos;&#x5B63;&#x660C;&#x660E;&apos;</span>] };</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x539F;&#x578B;&#x5F0F;&#x7EE7;&#x627F;  &#x53C2;&#x6570;o,&#x5F15;&#x7528;&#x7C7B;&#x578B;&#x503C;&#xFF0C;&#x5B9E;&#x8D28;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x5185;&#x5B58;&#x5730;&#x5740;</div><div class="line"> * @param {any} obj</div><div class="line"> * @returns</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">object</span>(<span class="params">obj</span>) </span>{</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;F</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">function</span> <span class="title">F</span>(<span class="params"></span>) </span>{</div><div class="line">        <span class="comment">// &#x7A7A;&#x6784;&#x9020;&#x51FD;&#x6570;F</span></div><div class="line">    }</div><div class="line">    F.prototype = obj;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> F();</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> ob1 = object(ob);</div><div class="line">ob1.name = <span class="string">&apos;&#x4FAF;&#x4EAE;&#x660E;&apos;</span>;</div><div class="line">ob1.friends.push(<span class="string">&apos;&#x9648;&#x6D77;&apos;</span>);</div><div class="line"><span class="built_in">console</span>.log(ob1.name); <span class="comment">// &#x4FAF;&#x4EAE;&#x660E;</span></div><div class="line"><span class="built_in">console</span>.log(ob1.friends); <span class="comment">// [&quot;&#x6C99;&#x745E;&#x91D1;&quot;, &quot;&#x5B63;&#x660C;&#x660E;&quot;, &quot;&#x9648;&#x6D77;&quot;]</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> ob2 = object(ob);</div><div class="line"><span class="built_in">console</span>.log(ob2.name); <span class="comment">// &#x674E;&#x8FBE;&#x5EB7;</span></div><div class="line"><span class="built_in">console</span>.log(ob2.friends); <span class="comment">// [&quot;&#x6C99;&#x745E;&#x91D1;&quot;, &quot;&#x5B63;&#x660C;&#x660E;&quot;, &quot;&#x9648;&#x6D77;&quot;]</span></div></pre></td></tr></table></figure>
+<h2 id="&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;"><a href="#&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;" class="headerlink" title="&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;"></a>&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;</h2><ul>
+<li>&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x4EC5;&#x7528;&#x4E8E;&#x5C01;&#x88C5;&#x7EE7;&#x627F;&#x8FC7;&#x7A0B;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x5728;&#x51FD;&#x6570;&#x5185;&#x90E8;&#x4EE5;&#x67D0;&#x79CD;&#x65B9;&#x5F0F;&#x589E;&#x5F3A;&#x5BF9;&#x8C61;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ob = { <span class="attr">name</span>: <span class="string">&apos;&#x674E;&#x8FBE;&#x5EB7;&apos;</span>, <span class="attr">friends</span>: [<span class="string">&apos;&#x6C99;&#x745E;&#x91D1;&apos;</span>, <span class="string">&apos;&#x5B63;&#x660C;&#x660E;&apos;</span>] };</div><div class="line"></div><div class="line"><span class="comment">// &#x4E0A;&#x9762;&#x518D;ECMAScript5 &#x6709;&#x4E86;&#x4E00;&#x65B0;&#x7684;&#x89C4;&#x8303;&#x5199;&#x6CD5;&#xFF0C;Object.create(ob) &#x6548;&#x679C;&#x662F;&#x4E00;&#x6837;&#x7684;</span></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;</div><div class="line"> * @param {any} o</div><div class="line"> * @returns</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">createOb</span>(<span class="params">o</span>) </span>{</div><div class="line">    <span class="keyword">var</span> newob = <span class="built_in">Object</span>.create(o); <span class="comment">// &#x521B;&#x5EFA;&#x5BF9;&#x8C61;</span></div><div class="line">    newob.sayname = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{ <span class="comment">// &#x589E;&#x5F3A;&#x5BF9;&#x8C61;</span></div><div class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.name);</div><div class="line">    };</div><div class="line"></div><div class="line">    <span class="keyword">return</span> newob; <span class="comment">// &#x6307;&#x5B9A;&#x5BF9;&#x8C61;</span></div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">var</span> ob1 = createOb(ob);</div><div class="line">ob1.sayname(); <span class="comment">// &#x674E;&#x8FBE;&#x5EB7;</span></div></pre></td></tr></table></figure>
+<h2 id="&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;"><a href="#&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;" class="headerlink" title="&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;"></a>&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;</h2><ul>
+<li>&#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x6700;&#x5927;&#x7684;&#x95EE;&#x9898;&#x662F;&#x65E0;&#x8BBA;&#x4EC0;&#x4E48;&#x60C5;&#x51B5;&#x4E0B;&#x90FD;&#x4F1A;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#x8D85;&#x7C7B;&#x578B;&#x6784;&#x9020;&#x51FD;&#x6570;<ul>
+<li>&#x4E00;&#x6B21;&#x662F;&#x521B;&#x5EFA;&#x5B50;&#x7C7B;&#x578B;&#x539F;&#x578B;&#x65F6;&#xFF0C;&#x4E00;&#x6B21;&#x662F;&#x5B50;&#x51FD;&#x6570;&#x7684;&#x5185;&#x90E8;&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+</ul>
+</li>
+<li>&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x7EE7;&#x627F;&#x901A;&#x8FC7;&#x501F;&#x7528;&#x6784;&#x9020;&#x51FD;&#x6570;&#x6765;&#x7EE7;&#x627F;&#x5C5E;&#x6027;&#xFF0C;&#x901A;&#x8FC7;&#x539F;&#x578B;&#x94FE;&#x6DF7;&#x6210;&#x5F62;&#x5F0F;&#x6765;&#x7EE7;&#x627F;&#x65B9;&#x6CD5;&#x3002;</li>
+<li>&#x601D;&#x8DEF;&#x662F;&#x4E0D;&#x5FC5;&#x4E3A;&#x4E86;&#x6307;&#x5B9A;&#x7684;&#x5B50;&#x7C7B;&#x578B;&#x539F;&#x578B;&#x800C;&#x8C03;&#x7528;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</li>
+<li>&#x4F7F;&#x7528;&#x5BC4;&#x751F;&#x5F0F;&#x7EE7;&#x627F;&#x6765;&#x7EE7;&#x627F;&#x8D85;&#x7C7B;&#x578B;&#x7684;&#x539F;&#x578B;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x5C06;&#x7ED3;&#x679C;&#x6307;&#x5B9A;&#x7ED9;&#x5B50;&#x7C7B;&#x578B;&#x7684;&#x539F;&#x578B;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x5B9E;&#x73B0;&#x7EE7;&#x627F;</div><div class="line"> * @param {any} Parent &#x7236;&#x7C7B;</div><div class="line"> * @param {any} Child  &#x5B50;&#x7C7B;</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">inheritPrototype</span>(<span class="params">Parent, Child</span>) </span>{</div><div class="line">    Child.prototype = <span class="built_in">Object</span>.create(Parent.prototype); <span class="comment">// &#x4FEE;&#x6539;</span></div><div class="line">    Child.prototype.construtor = Child;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x7236;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Parent</span>(<span class="params">name</span>) </span>{</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">    <span class="keyword">this</span>.friends = [<span class="string">&apos;&#x8FBE;&#x5EB7;&apos;</span>, <span class="string">&apos;&#x745E;&#x91D1;&apos;</span>];</div><div class="line">}</div><div class="line"></div><div class="line">Parent.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;parent name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x5B50;&#x7C7B;</div><div class="line"> * @param {any} name</div><div class="line"> * @param {any} parentName</div><div class="line"> */</div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Child</span>(<span class="params">name, parentName</span>) </span>{</div><div class="line">    Parent.call(<span class="keyword">this</span>, parentName);</div><div class="line">    <span class="keyword">this</span>.name = name;</div><div class="line">}</div><div class="line"></div><div class="line"><span class="comment">// &#x5B9E;&#x73B0;&#x7EE7;&#x627F;</span></div><div class="line">inheritPrototype(Parent, Child);</div><div class="line"></div><div class="line">Child.prototype.sayName = <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">    <span class="built_in">console</span>.log(<span class="string">&apos;child name is &apos;</span> + <span class="keyword">this</span>.name + <span class="string">&apos;!&apos;</span>);</div><div class="line">};</div><div class="line"></div><div class="line"><span class="keyword">var</span> parent = <span class="keyword">new</span> Parent(<span class="string">&apos;father&apos;</span>);</div><div class="line">parent.sayName(); <span class="comment">// parent name: father</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> child1 = <span class="keyword">new</span> Child(<span class="string">&apos;son&apos;</span>, <span class="string">&apos;father&apos;</span>);</div><div class="line">child1.friends.push(<span class="string">&apos;&#x7334;&#x5B50;&apos;</span>); <span class="comment">// [&quot;&#x8FBE;&#x5EB7;&quot;, &quot;&#x745E;&#x91D1;&quot;, &quot;&#x7334;&#x5B50;&quot;]</span></div><div class="line"><span class="built_in">console</span>.log(child1.friends);</div><div class="line">child1.sayName(); <span class="comment">// child name: son</span></div><div class="line"></div><div class="line"><span class="keyword">var</span> child2 = <span class="keyword">new</span> Child(<span class="string">&apos;son2&apos;</span>, <span class="string">&apos;father&apos;</span>);</div><div class="line"><span class="built_in">console</span>.log(child2.friends); <span class="comment">// [&quot;&#x8FBE;&#x5EB7;&quot;, &quot;&#x745E;&#x91D1;&quot;]</span></div><div class="line">child1.sayName(); <span class="comment">// child name: son2</span></div></pre></td></tr></table></figure>
+<ul>
+<li>&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x65B9;&#x5F0F;&#xFF0C;&#x8DDF;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x7684;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x5728;&#x4E00;&#x6B21;&#x5B9E;&#x4F8B;&#x4E2D;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;</li>
+<li>&#x5047;&#x5982;&#x8BF4;&#x7236;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x5668;&#x4EE3;&#x7801;&#x5F88;&#x591A;&#xFF0C;&#x8FD8;&#x9700;&#x8981;&#x8C03;&#x7528;&#x4E24;&#x6B21;&#x7684;&#x8BDD;&#x5BF9;&#x7CFB;&#x7EDF;&#x80AF;&#x5B9A;&#x4F1A;&#x6709;&#x5F71;&#x54CD;&#xFF0C;&#x5BC4;&#x751F;&#x7EC4;&#x5408;&#x5F0F;&#x7EE7;&#x627F;&#x7684;&#x601D;&#x60F3;&#x5728;&#x4E8E;&#xFF1A;&#x7528;&#x4E00;&#x4E2A; F &#x7A7A;&#x7684;&#x6784;&#x9020;&#x51FD;&#x6570;&#x53BB;&#x53D6;&#x4EE3;&#x6267;&#x884C;&#x4E86; Parent &#x8FD9;&#x4E2A;&#x6784;&#x9020;&#x51FD;&#x6570;&#x3002;</li>
+</ul>
+<h2 id="ES-6-&#x7EE7;&#x627F;"><a href="#ES-6-&#x7EE7;&#x627F;" class="headerlink" title="ES 6 &#x7EE7;&#x627F;"></a>ES 6 &#x7EE7;&#x627F;</h2><ul>
+<li>ES6&#x63D0;&#x4F9B;&#x4E86;&#x66F4;&#x63A5;&#x8FD1;&#x4F20;&#x7EDF;&#x8BED;&#x8A00;&#x201D;&#x7C7B;&#x201D;&#x7684;&#x5199;&#x6CD5;&#xFF0C;&#x5F15;&#x5165;&#x4E86;Class&#xFF08;&#x7C7B;&#xFF09;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#xFF0C;&#x4F5C;&#x4E3A;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x677F;&#x3002;</li>
+<li>&#x901A;&#x8FC7;class&#x5173;&#x952E;&#x5B57;&#xFF0C;&#x53EF;&#x4EE5;&#x5B9A;&#x4E49;&#x7C7B;&#x3002;</li>
+<li>&#x57FA;&#x672C;&#x4E0A;&#xFF0C;ES6&#x7684;class&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x5B83;&#x7684;&#x7EDD;&#x5927;&#x90E8;&#x5206;&#x529F;&#x80FD;&#xFF0C;ES5&#x90FD;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x3002;</li>
+<li>&#x65B0;&#x7684;class&#x5199;&#x6CD5;&#x53EA;&#x662F;&#x8BA9;&#x5BF9;&#x8C61;&#x539F;&#x578B;&#x7684;&#x5199;&#x6CD5;&#x66F4;&#x52A0;&#x6E05;&#x6670;&#x3001;&#x66F4;&#x50CF;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7F16;&#x7A0B;&#x7684;&#x8BED;&#x6CD5;&#x800C;&#x5DF2;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x7528;ES6&#x7684;&#x8BED;&#x6CD5;&#x5B9E;&#x73B0;&#x7C7B;&#x7684;&#x7EE7;&#x627F;&#x3002;</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x7236;&#x7C7B;</div><div class="line"> * @class Parent</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>{</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Creates an instance of Parent.</div><div class="line">     * @param {any} name</div><div class="line">     * @memberOf Parent</div><div class="line">     */</div><div class="line">    <span class="keyword">constructor</span>(name) {</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x505A;&#x70B9;&#x4E1C;&#x897F;</div><div class="line">     * @memberOf Parent</div><div class="line">     */</div><div class="line">    doSomething() {</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">&apos;parent do something!&apos;</span>);</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x6253;&#x5370;&#x540D;&#x5B57;</div><div class="line">     * @memberOf Parent</div><div class="line">     */</div><div class="line">    sayName() {</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">`parent name is <span class="subst">${<span class="keyword">this</span>.name}</span>!`</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * &#x5B50;&#x7C7B; &#x7EE7;&#x627F; &#x7236;&#x7C7B;</div><div class="line"> * @class Child</div><div class="line"> * @extends {Parent}</div><div class="line"> */</div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Child</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>{</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * Creates an instance of Child.</div><div class="line">     * @param {any} name</div><div class="line">     * @param {any} parentName</div><div class="line">     * @memberOf Child</div><div class="line">     */</div><div class="line">    <span class="keyword">constructor</span>(name, parentName) {</div><div class="line">        <span class="comment">// &#x8C03;&#x7528;&#x57FA;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;</span></div><div class="line">        <span class="keyword">super</span>(parentName);</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">    }</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * &#x6253;&#x5370;&#x540D;&#x5B57; &#x8986;&#x76D6;&#x7236;&#x7C7B;&#x7684;sayName&#x65B9;&#x6CD5;</div><div class="line">     * @memberOf Child</div><div class="line">     */</div><div class="line">    sayName() {</div><div class="line">        <span class="built_in">console</span>.log(<span class="string">`child name is <span class="subst">${<span class="keyword">this</span>.name}</span>!`</span>);</div><div class="line">    }</div><div class="line">}</div><div class="line"></div><div class="line"><span class="keyword">const</span> child = <span class="keyword">new</span> Child(<span class="string">&apos;son&apos;</span>, <span class="string">&apos;father&apos;</span>);</div><div class="line">child.sayName(); <span class="comment">// child name: son</span></div><div class="line">child.doSomething(); <span class="comment">// parent do something!</span></div><div class="line"></div><div class="line"><span class="keyword">const</span> parent = <span class="keyword">new</span> Parent(<span class="string">&apos;father&apos;</span>);</div><div class="line">parent.sayName(); <span class="comment">// parent name: father</span></div></pre></td></tr></table></figure>
+<p><strong>&#x5982;&#x679C;&#x9879;&#x76EE;&#x4E2D;&#x4F7F;&#x7528;&#x5230;ES6&#x8BED;&#x6CD5;&#x5F00;&#x53D1;&#xFF0C;&#x63A8;&#x8350;&#x4F7F;&#x7528;ES6&#x7EE7;&#x627F;</strong></p>
+<h2 id="&#x53C2;&#x8003;&#x6587;&#x732E;"><a href="#&#x53C2;&#x8003;&#x6587;&#x732E;" class="headerlink" title="&#x53C2;&#x8003;&#x6587;&#x732E;"></a>&#x53C2;&#x8003;&#x6587;&#x732E;</h2><p><a href="https://zhuanlan.zhihu.com/p/25578222" target="_blank" rel="external">30 &#x5206;&#x949F;&#x5B66;&#x4F1A; JS &#x7EE7;&#x627F;</a><br><a href="https://segmentfault.com/a/1190000007098750#articleHeader12" target="_blank" rel="external">&#x8BFB;&#x4E66;&#x7B14;&#x8BB0;&#x2013;&#x5BF9;&#x8C61;&#x3001;&#x5B9E;&#x4F8B;&#x3001;&#x539F;&#x578B;&#x3001;&#x7EE7;&#x627F;</a><br>javascript&#x9AD8;&#x7EA7;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;</p>
+<h2 id="&#x63A8;&#x8350;&#x6587;&#x7AE0;"><a href="#&#x63A8;&#x8350;&#x6587;&#x7AE0;" class="headerlink" title="&#x63A8;&#x8350;&#x6587;&#x7AE0;"></a>&#x63A8;&#x8350;&#x6587;&#x7AE0;</h2><p><a href="/2017/02/20/13/">vue2.x Cnode&#x793E;&#x533A;</a><br><a href="/2016/12/09/04/">&#x57FA;&#x4E8E;vue1.0&#x5F00;&#x53D1;&#x7684;&#x79FB;&#x52A8;&#x7AEF;H5&#x79EF;&#x5206;&#x5546;&#x57CE;&#x9879;&#x76EE;</a><br><a href="/2016/12/08/Gulp%20&#x642D;&#x5EFA;&#x9879;&#x76EE;/">&#x4F7F;&#x7528;gulp&#x524D;&#x7AEF;&#x81EA;&#x52A8;&#x5316;&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x642D;&#x5EFA;&#x524D;&#x7AEF;&#x9879;&#x76EE;</a></p>
+<p><strong>&#x89C9;&#x5F97;&#x6709;&#x7528;&#x7684;&#x8BDD;&#xFF0C;&#x8BB0;&#x5F97;&#x5728;GitHub&#x4E2D;&#x7ED9;&#x4E2A;star&#x54E6;&#xFF01;</strong></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="vincentSea wechat" style="width: 200px; max-width: 100%;"/>
+    <div>一颗稻草的价值，到底是多少呢？想知道的话，就订阅吧！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/10/再谈preventDefault与stopPropagation/" rel="next" title="再谈preventDefault与stopPropagation">
+                <i class="fa fa-chevron-left"></i> 再谈preventDefault与stopPropagation
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/14/前端开发面试题集锦/" rel="prev" title="前端开发面试题集锦">
+                前端开发面试题集锦 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/16203604.jpg"
+               alt="vincentSea" />
+          <p class="site-author-name" itemprop="name">vincentSea</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自文科班子的码农</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vincentSea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2235933440?refer_flag=1001030101_" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/56e17630731956005cb7f501" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原型链继承"><span class="nav-number">1.</span> <span class="nav-text">原型链继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#借用构造函数-类式继承"><span class="nav-number">2.</span> <span class="nav-text">借用构造函数 (类式继承)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#组合式继承-原型-构造函数继承"><span class="nav-number">3.</span> <span class="nav-text">组合式继承(原型+构造函数继承)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#原型式继承"><span class="nav-number">4.</span> <span class="nav-text">原型式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生式继承"><span class="nav-number">5.</span> <span class="nav-text">寄生式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#寄生组合式继承"><span class="nav-number">6.</span> <span class="nav-text">寄生组合式继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#ES-6-继承"><span class="nav-number">7.</span> <span class="nav-text">ES 6 继承</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">8.</span> <span class="nav-text">参考文献</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#推荐文章"><span class="nav-number">9.</span> <span class="nav-text">推荐文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vincentSea</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+<!-- dudodo.cc Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f016dc5f4aaf617bc4f65b71b73cc257";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+<!--  -->
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f7ff3cf2ee114e7abad3793d8c8016e7",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+<!--   -->
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

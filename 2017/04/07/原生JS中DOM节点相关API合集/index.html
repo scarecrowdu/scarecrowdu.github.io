@@ -1,0 +1,781 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="javascript," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/css/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="&amp;#x539F;&amp;#x751F;JS&amp;#x4E2D;DOM&amp;#x8282;&amp;#x70B9;&amp;#x76F8;&amp;#x5173;API&amp;#x5408;&amp;#x96C6;&amp;#x8282;&amp;#x70B9;&amp;#x5C5E;&amp;#x6027;123456789101112131415161718Node.nodeName   //&amp;#x8FD4;&amp;#x56DE;&amp;#x8282;&amp;#x70B9;&amp;#x540D;&amp;#x">
+<meta name="keywords" content="javascript">
+<meta property="og:type" content="article">
+<meta property="og:title" content="原生JS中DOM节点相关API合集">
+<meta property="og:url" content="http://yoursite.com/2017/04/07/原生JS中DOM节点相关API合集/index.html">
+<meta property="og:site_name" content="vincentSea">
+<meta property="og:description" content="&amp;#x539F;&amp;#x751F;JS&amp;#x4E2D;DOM&amp;#x8282;&amp;#x70B9;&amp;#x76F8;&amp;#x5173;API&amp;#x5408;&amp;#x96C6;&amp;#x8282;&amp;#x70B9;&amp;#x5C5E;&amp;#x6027;123456789101112131415161718Node.nodeName   //&amp;#x8FD4;&amp;#x56DE;&amp;#x8282;&amp;#x70B9;&amp;#x540D;&amp;#x">
+<meta property="og:updated_time" content="2017-06-01T02:10:15.439Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="原生JS中DOM节点相关API合集">
+<meta name="twitter:description" content="&amp;#x539F;&amp;#x751F;JS&amp;#x4E2D;DOM&amp;#x8282;&amp;#x70B9;&amp;#x76F8;&amp;#x5173;API&amp;#x5408;&amp;#x96C6;&amp;#x8282;&amp;#x70B9;&amp;#x5C5E;&amp;#x6027;123456789101112131415161718Node.nodeName   //&amp;#x8FD4;&amp;#x56DE;&amp;#x8282;&amp;#x70B9;&amp;#x540D;&amp;#x">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/04/07/原生JS中DOM节点相关API合集/"/>
+
+
+
+
+
+  <title> 原生JS中DOM节点相关API合集 | vincentSea </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">vincentSea</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个来自文科班子的码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/04/07/原生JS中DOM节点相关API合集/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vincentSea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/16203604.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="vincentSea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                原生JS中DOM节点相关API合集
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-04-07T10:55:05+08:00">
+                2017-04-07
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/04/07/原生JS中DOM节点相关API合集/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x539F;&#x751F;JS&#x4E2D;DOM&#x8282;&#x70B9;&#x76F8;&#x5173;API&#x5408;&#x96C6;"><a href="#&#x539F;&#x751F;JS&#x4E2D;DOM&#x8282;&#x70B9;&#x76F8;&#x5173;API&#x5408;&#x96C6;" class="headerlink" title="&#x539F;&#x751F;JS&#x4E2D;DOM&#x8282;&#x70B9;&#x76F8;&#x5173;API&#x5408;&#x96C6;"></a>&#x539F;&#x751F;JS&#x4E2D;DOM&#x8282;&#x70B9;&#x76F8;&#x5173;API&#x5408;&#x96C6;</h2><h3 id="&#x8282;&#x70B9;&#x5C5E;&#x6027;"><a href="#&#x8282;&#x70B9;&#x5C5E;&#x6027;" class="headerlink" title="&#x8282;&#x70B9;&#x5C5E;&#x6027;"></a>&#x8282;&#x70B9;&#x5C5E;&#x6027;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">Node.nodeName   <span class="comment">//&#x8FD4;&#x56DE;&#x8282;&#x70B9;&#x540D;&#x79F0;&#xFF0C;&#x53EA;&#x8BFB;</span></div><div class="line">Node.nodeType   <span class="comment">//&#x8FD4;&#x56DE;&#x8282;&#x70B9;&#x7C7B;&#x578B;&#x7684;&#x5E38;&#x6570;&#x503C;&#xFF0C;&#x53EA;&#x8BFB;</span></div><div class="line">Node.nodeValue  <span class="comment">//&#x8FD4;&#x56DE;Text&#x6216;Comment&#x8282;&#x70B9;&#x7684;&#x6587;&#x672C;&#x503C;&#xFF0C;&#x53EA;&#x8BFB;</span></div><div class="line">Node.textContent  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x548C;&#x5B83;&#x7684;&#x6240;&#x6709;&#x540E;&#x4EE3;&#x8282;&#x70B9;&#x7684;&#x6587;&#x672C;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x8BFB;&#x5199;</span></div><div class="line">Node.baseURI    <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7F51;&#x9875;&#x7684;&#x7EDD;&#x5BF9;&#x8DEF;&#x5F84;</span></div><div class="line">Node.ownerDocument  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x6240;&#x5728;&#x7684;&#x9876;&#x5C42;&#x6587;&#x6863;&#x5BF9;&#x8C61;&#xFF0C;&#x5373;document</span></div><div class="line">Node.nextSibling  <span class="comment">//&#x8FD4;&#x56DE;&#x7D27;&#x8DDF;&#x5728;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x540E;&#x9762;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5144;&#x5F1F;&#x8282;&#x70B9;</span></div><div class="line">Node.previousSibling  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x524D;&#x9762;&#x7684;&#x3001;&#x8DDD;&#x79BB;&#x6700;&#x8FD1;&#x7684;&#x4E00;&#x4E2A;&#x5144;&#x5F1F;&#x8282;&#x70B9;</span></div><div class="line">Node.parentNode   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7236;&#x8282;&#x70B9;</span></div><div class="line">Node.parentElement  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7236;Element&#x8282;&#x70B9;</span></div><div class="line">Node.childNodes   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.firstChild  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.lastChild   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B50;&#x8282;&#x70B9;</span></div><div class="line"><span class="comment">//parentNode&#x63A5;&#x53E3;</span></div><div class="line">Node.children  <span class="comment">//&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;Element&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.firstElementChild  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;Element&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.lastElementChild   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;Element&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.childElementCount  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x6240;&#x6709;Element&#x5B50;&#x8282;&#x70B9;&#x7684;&#x6570;&#x76EE;&#x3002;</span></div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="&#x64CD;&#x4F5C;"><a href="#&#x64CD;&#x4F5C;" class="headerlink" title="&#x64CD;&#x4F5C;"></a>&#x64CD;&#x4F5C;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">Node.appendChild(node)   <span class="comment">//&#x5411;&#x8282;&#x70B9;&#x6DFB;&#x52A0;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.hasChildNodes()   <span class="comment">//&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x662F;&#x5426;&#x6709;&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.cloneNode(<span class="literal">true</span>);  <span class="comment">// &#x9ED8;&#x8BA4;&#x4E3A;false(&#x514B;&#x9686;&#x8282;&#x70B9;), true(&#x514B;&#x9686;&#x8282;&#x70B9;&#x53CA;&#x5176;&#x5C5E;&#x6027;&#xFF0C;&#x4EE5;&#x53CA;&#x540E;&#x4EE3;)</span></div><div class="line">Node.insertBefore(newNode,oldNode)  <span class="comment">// &#x5728;&#x6307;&#x5B9A;&#x5B50;&#x8282;&#x70B9;&#x4E4B;&#x524D;&#x63D2;&#x5165;&#x65B0;&#x7684;&#x5B50;&#x8282;&#x70B9;</span></div><div class="line">Node.removeChild(node)   <span class="comment">//&#x5220;&#x9664;&#x8282;&#x70B9;&#xFF0C;&#x5728;&#x8981;&#x5220;&#x9664;&#x8282;&#x70B9;&#x7684;&#x7236;&#x8282;&#x70B9;&#x4E0A;&#x64CD;&#x4F5C;</span></div><div class="line">Node.replaceChild(newChild,oldChild)  <span class="comment">//&#x66FF;&#x6362;&#x8282;&#x70B9;</span></div><div class="line">Node.contains(node)  <span class="comment">//&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x53C2;&#x6570;&#x8282;&#x70B9;&#x662F;&#x5426;&#x4E3A;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x540E;&#x4EE3;&#x8282;&#x70B9;&#x3002;</span></div><div class="line">Node.compareDocumentPosition(node)   <span class="comment">//&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;7&#x4E2A;&#x6BD4;&#x7279;&#x4F4D;&#x7684;&#x4E8C;&#x8FDB;&#x5236;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x53C2;&#x6570;&#x8282;&#x70B9;&#x548C;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x5173;&#x7CFB;</span></div><div class="line">Node.isEqualNode(noe)  <span class="comment">//&#x8FD4;&#x56DE;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x7528;&#x4E8E;&#x68C0;&#x67E5;&#x4E24;&#x4E2A;&#x8282;&#x70B9;&#x662F;&#x5426;&#x76F8;&#x7B49;&#x3002;&#x6240;&#x8C13;&#x76F8;&#x7B49;&#x7684;&#x8282;&#x70B9;&#xFF0C;&#x6307;&#x7684;&#x662F;&#x4E24;&#x4E2A;&#x8282;&#x70B9;&#x7684;&#x7C7B;&#x578B;&#x76F8;&#x540C;&#x3001;&#x5C5E;&#x6027;&#x76F8;&#x540C;&#x3001;&#x5B50;&#x8282;&#x70B9;&#x76F8;&#x540C;&#x3002;</span></div><div class="line">Node.normalize()   <span class="comment">//&#x7528;&#x4E8E;&#x6E05;&#x7406;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x5185;&#x90E8;&#x7684;&#x6240;&#x6709;Text&#x8282;&#x70B9;&#x3002;&#x5B83;&#x4F1A;&#x53BB;&#x9664;&#x7A7A;&#x7684;&#x6587;&#x672C;&#x8282;&#x70B9;&#xFF0C;&#x5E76;&#x4E14;&#x5C06;&#x6BD7;&#x90BB;&#x7684;&#x6587;&#x672C;&#x8282;&#x70B9;&#x5408;&#x5E76;&#x6210;&#x4E00;&#x4E2A;&#x3002;</span></div><div class="line"><span class="comment">//ChildNode&#x63A5;&#x53E3;</span></div><div class="line">Node.remove()  <span class="comment">//&#x7528;&#x4E8E;&#x5220;&#x9664;&#x5F53;&#x524D;&#x8282;&#x70B9;</span></div><div class="line">Node.before()  <span class="comment">//</span></div><div class="line">Node.after()</div><div class="line">Node.replaceWith()</div></pre></td></tr></table></figure>
+<h3 id="Document&#x8282;&#x70B9;"><a href="#Document&#x8282;&#x70B9;" class="headerlink" title="Document&#x8282;&#x70B9;"></a>Document&#x8282;&#x70B9;</h3><h4 id="Document&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;"><a href="#Document&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;" class="headerlink" title="Document&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;"></a>Document&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;</h4><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.doctype   <span class="comment">//</span></div><div class="line"><span class="built_in">document</span>.documentElement  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x6839;&#x8282;&#x70B9;</span></div><div class="line"><span class="built_in">document</span>.defaultView   <span class="comment">//&#x8FD4;&#x56DE;document&#x5BF9;&#x8C61;&#x6240;&#x5728;&#x7684;window&#x5BF9;&#x8C61;</span></div><div class="line"><span class="built_in">document</span>.body   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&lt;body&gt;&#x8282;&#x70B9;</span></div><div class="line"><span class="built_in">document</span>.head   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&lt;head&gt;&#x8282;&#x70B9;</span></div><div class="line"><span class="built_in">document</span>.activeElement  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x4E2D;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x7684;&#x90A3;&#x4E2A;&#x5143;&#x7D20;&#x3002;</span></div><div class="line"><span class="comment">//&#x8282;&#x70B9;&#x96C6;&#x5408;&#x5C5E;&#x6027;</span></div><div class="line"><span class="built_in">document</span>.links  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x6240;&#x6709;a&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.forms  <span class="comment">//&#x8FD4;&#x56DE;&#x9875;&#x9762;&#x4E2D;&#x6240;&#x6709;&#x8868;&#x5355;&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.images  <span class="comment">//&#x8FD4;&#x56DE;&#x9875;&#x9762;&#x4E2D;&#x6240;&#x6709;&#x56FE;&#x7247;&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.embeds  <span class="comment">//&#x8FD4;&#x56DE;&#x7F51;&#x9875;&#x4E2D;&#x6240;&#x6709;&#x5D4C;&#x5165;&#x5BF9;&#x8C61;</span></div><div class="line"><span class="built_in">document</span>.scripts  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x6240;&#x6709;&#x811A;&#x672C;</span></div><div class="line"><span class="built_in">document</span>.styleSheets  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x7F51;&#x9875;&#x7684;&#x6240;&#x6709;&#x6837;&#x5F0F;&#x8868;</span></div><div class="line"><span class="comment">//&#x6587;&#x6863;&#x4FE1;&#x606F;&#x5C5E;&#x6027;</span></div><div class="line"><span class="built_in">document</span>.documentURI  <span class="comment">//&#x8868;&#x793A;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x7F51;&#x5740;</span></div><div class="line"><span class="built_in">document</span>.URL  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x7F51;&#x5740;</span></div><div class="line"><span class="built_in">document</span>.domain  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x57DF;&#x540D;</span></div><div class="line"><span class="built_in">document</span>.lastModified  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x6700;&#x540E;&#x4FEE;&#x6539;&#x7684;&#x65F6;&#x95F4;&#x6233;</span></div><div class="line"><span class="built_in">document</span>.location  <span class="comment">//&#x8FD4;&#x56DE;location&#x5BF9;&#x8C61;&#xFF0C;&#x63D0;&#x4F9B;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;URL&#x4FE1;&#x606F;</span></div><div class="line"><span class="built_in">document</span>.referrer  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x8BBF;&#x95EE;&#x6765;&#x6E90;</span></div><div class="line"><span class="built_in">document</span>.title    <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x6807;&#x9898;</span></div><div class="line"><span class="built_in">document</span>.characterSet&#x5C5E;&#x6027;&#x8FD4;&#x56DE;&#x6E32;&#x67D3;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x5B57;&#x7B26;&#x96C6;&#xFF0C;&#x6BD4;&#x5982;UTF<span class="number">-8</span>&#x3001;ISO<span class="number">-8859</span><span class="number">-1</span>&#x3002;</div><div class="line"><span class="built_in">document</span>.readyState  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x6587;&#x6863;&#x7684;&#x72B6;&#x6001;</span></div><div class="line"><span class="built_in">document</span>.designMode  <span class="comment">//&#x63A7;&#x5236;&#x5F53;&#x524D;&#x6587;&#x6863;&#x662F;&#x5426;&#x53EF;&#x7F16;&#x8F91;&#xFF0C;&#x53EF;&#x8BFB;&#x5199;</span></div><div class="line"><span class="built_in">document</span>.compatMode  <span class="comment">//&#x8FD4;&#x56DE;&#x6D4F;&#x89C8;&#x5668;&#x5904;&#x7406;&#x6587;&#x6863;&#x7684;&#x6A21;&#x5F0F;</span></div><div class="line"><span class="built_in">document</span>.cookie   <span class="comment">//&#x7528;&#x6765;&#x64CD;&#x4F5C;Cookie</span></div></pre></td></tr></table></figure>
+<h3 id="Document&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;"><a href="#Document&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="Document&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;"></a>Document&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;</h3><h3 id="&#x8BFB;&#x5199;&#x65B9;&#x6CD5;"><a href="#&#x8BFB;&#x5199;&#x65B9;&#x6CD5;" class="headerlink" title="&#x8BFB;&#x5199;&#x65B9;&#x6CD5;"></a>&#x8BFB;&#x5199;&#x65B9;&#x6CD5;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.open()   <span class="comment">//&#x7528;&#x4E8E;&#x65B0;&#x5EFA;&#x5E76;&#x6253;&#x5F00;&#x4E00;&#x4E2A;&#x6587;&#x6863;</span></div><div class="line"><span class="built_in">document</span>.close()   <span class="comment">//&#x4E0D;&#x5B89;&#x6BD4;open&#x65B9;&#x6CD5;&#x6240;&#x65B0;&#x5EFA;&#x7684;&#x6587;&#x6863;</span></div><div class="line"><span class="built_in">document</span>.write()   <span class="comment">//&#x7528;&#x4E8E;&#x5411;&#x5F53;&#x524D;&#x6587;&#x6863;&#x5199;&#x5165;&#x5185;&#x5BB9;</span></div><div class="line"><span class="built_in">document</span>.writeIn()  <span class="comment">//&#x7528;&#x4E8E;&#x5411;&#x5F53;&#x524D;&#x6587;&#x6863;&#x5199;&#x5165;&#x5185;&#x5BB9;&#xFF0C;&#x5C3E;&#x90E8;&#x6DFB;&#x52A0;&#x6362;&#x884C;&#x7B26;&#x3002;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x67E5;&#x627E;&#x8282;&#x70B9;"><a href="#&#x67E5;&#x627E;&#x8282;&#x70B9;" class="headerlink" title="&#x67E5;&#x627E;&#x8282;&#x70B9;"></a>&#x67E5;&#x627E;&#x8282;&#x70B9;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.querySelector(selectors)   <span class="comment">//&#x63A5;&#x53D7;&#x4E00;&#x4E2A;CSS&#x9009;&#x62E9;&#x5668;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x7B2C;&#x4E00;&#x4E2A;&#x5339;&#x914D;&#x8BE5;&#x9009;&#x62E9;&#x5668;&#x7684;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.querySelectorAll(selectors)  <span class="comment">//&#x63A5;&#x53D7;&#x4E00;&#x4E2A;CSS&#x9009;&#x62E9;&#x5668;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#xFF0C;&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x5339;&#x914D;&#x8BE5;&#x9009;&#x62E9;&#x5668;&#x7684;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(tagName)  <span class="comment">//&#x8FD4;&#x56DE;&#x6240;&#x6709;&#x6307;&#x5B9A;HTML&#x6807;&#x7B7E;&#x7684;&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.getElementsByClassName(className)   <span class="comment">//&#x8FD4;&#x56DE;&#x5305;&#x62EC;&#x4E86;&#x6240;&#x6709;class&#x540D;&#x5B57;&#x7B26;&#x5408;&#x6307;&#x5B9A;&#x6761;&#x4EF6;&#x7684;&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.getElementsByName(name)   <span class="comment">//&#x7528;&#x4E8E;&#x9009;&#x62E9;&#x62E5;&#x6709;name&#x5C5E;&#x6027;&#x7684;HTML&#x5143;&#x7D20;&#xFF08;&#x6BD4;&#x5982;&lt;form&gt;&#x3001;&lt;radio&gt;&#x3001;&lt;img&gt;&#x3001;&lt;frame&gt;&#x3001;&lt;embed&gt;&#x548C;&lt;object&gt;&#x7B49;&#xFF09;</span></div><div class="line"><span class="built_in">document</span>.getElementById(id)   <span class="comment">//&#x8FD4;&#x56DE;&#x5339;&#x914D;&#x6307;&#x5B9A;id&#x5C5E;&#x6027;&#x7684;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.elementFromPoint(x,y)  <span class="comment">//&#x8FD4;&#x56DE;&#x4F4D;&#x4E8E;&#x9875;&#x9762;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x6700;&#x4E0A;&#x5C42;&#x7684;Element&#x5B50;&#x8282;&#x70B9;&#x3002;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x751F;&#x6210;&#x8282;&#x70B9;"><a href="#&#x751F;&#x6210;&#x8282;&#x70B9;" class="headerlink" title="&#x751F;&#x6210;&#x8282;&#x70B9;"></a>&#x751F;&#x6210;&#x8282;&#x70B9;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.createElement(tagName)   <span class="comment">//&#x7528;&#x6765;&#x751F;&#x6210;HTML&#x5143;&#x7D20;&#x8282;&#x70B9;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.createTextNode(text)   <span class="comment">//&#x7528;&#x6765;&#x751F;&#x6210;&#x6587;&#x672C;&#x8282;&#x70B9;</span></div><div class="line"><span class="built_in">document</span>.createAttribute(name)  <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x5C5E;&#x6027;&#x5BF9;&#x8C61;&#x8282;&#x70B9;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5B83;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.createDocumentFragment()  <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x4E2A;DocumentFragment&#x5BF9;&#x8C61;</span></div><div class="line">&#xFF08;<span class="number">4</span>&#xFF09;&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;</div><div class="line"><span class="built_in">document</span>.createEvent(type)   <span class="comment">//&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x5BF9;&#x8C61;&#xFF0C;&#x8BE5;&#x5BF9;&#x8C61;&#x80FD;&#x88AB;element.dispatchEvent()&#x65B9;&#x6CD5;&#x4F7F;&#x7528;</span></div><div class="line"><span class="built_in">document</span>.addEventListener(type,listener,capture)  <span class="comment">//&#x6CE8;&#x518C;&#x4E8B;&#x4EF6;</span></div><div class="line"><span class="built_in">document</span>.removeEventListener(type,listener,capture)  <span class="comment">//&#x6CE8;&#x9500;&#x4E8B;&#x4EF6;</span></div><div class="line"><span class="built_in">document</span>.dispatchEvent(event)  <span class="comment">//&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x5176;&#x4ED6;"><a href="#&#x5176;&#x4ED6;" class="headerlink" title="&#x5176;&#x4ED6;"></a>&#x5176;&#x4ED6;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.hasFocus()   <span class="comment">//&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x6587;&#x6863;&#x4E4B;&#x4E2D;&#x662F;&#x5426;&#x6709;&#x5143;&#x7D20;&#x88AB;&#x6FC0;&#x6D3B;&#x6216;&#x83B7;&#x5F97;&#x7126;&#x70B9;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.adoptNode(externalNode)  <span class="comment">//&#x5C06;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x4ECE;&#x5176;&#x539F;&#x6765;&#x6240;&#x5728;&#x7684;&#x6587;&#x6863;&#x79FB;&#x9664;&#xFF0C;&#x63D2;&#x5165;&#x5F53;&#x524D;&#x6587;&#x6863;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x63D2;&#x5165;&#x540E;&#x7684;&#x65B0;&#x8282;&#x70B9;&#x3002;</span></div><div class="line"><span class="built_in">document</span>.importNode(externalNode, deep)   <span class="comment">//&#x4ECE;&#x5916;&#x90E8;&#x6587;&#x6863;&#x62F7;&#x8D1D;&#x6307;&#x5B9A;&#x8282;&#x70B9;&#xFF0C;&#x63D2;&#x5165;&#x5F53;&#x524D;&#x6587;&#x6863;&#x3002;</span></div></pre></td></tr></table></figure>
+<h3 id="Element&#x8282;&#x70B9;"><a href="#Element&#x8282;&#x70B9;" class="headerlink" title="Element&#x8282;&#x70B9;"></a>Element&#x8282;&#x70B9;</h3><h3 id="Element&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;"><a href="#Element&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;" class="headerlink" title="Element&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;"></a>Element&#x8282;&#x70B9;&#x7684;&#x5C5E;&#x6027;</h3><h3 id="&#x7279;&#x6027;&#x5C5E;&#x6027;"><a href="#&#x7279;&#x6027;&#x5C5E;&#x6027;" class="headerlink" title="&#x7279;&#x6027;&#x5C5E;&#x6027;"></a>&#x7279;&#x6027;&#x5C5E;&#x6027;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">Element.attributes  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x5C5E;&#x6027;&#x8282;&#x70B9;</span></div><div class="line">Element.id  <span class="comment">//&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x7684;id&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x8BFB;&#x5199;</span></div><div class="line">Element.tagName  <span class="comment">//&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x7684;&#x5927;&#x5199;&#x6807;&#x7B7E;&#x540D;</span></div><div class="line">Element.innerHTML   <span class="comment">//&#x8FD4;&#x56DE;&#x8BE5;&#x5143;&#x7D20;&#x5305;&#x542B;&#x7684;HTML&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x8BFB;&#x5199;</span></div><div class="line">Element.outerHTML  <span class="comment">//&#x8FD4;&#x56DE;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;HTML&#x4EE3;&#x7801;&#xFF0C;&#x5305;&#x62EC;&#x5B83;&#x81EA;&#x8EAB;&#x548C;&#x5305;&#x542B;&#x7684;&#x7684;&#x6240;&#x6709;&#x5B50;&#x5143;&#x7D20;&#xFF0C;&#x53EF;&#x8BFB;&#x5199;</span></div><div class="line">Element.className  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x7684;class&#x5C5E;&#x6027;&#xFF0C;&#x53EF;&#x8BFB;&#x5199;</span></div><div class="line">Element.classList  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;class&#x96C6;&#x5408;</span></div><div class="line">Element.dataset   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x4E2D;&#x6240;&#x6709;&#x7684;data-*&#x5C5E;&#x6027;&#x3002;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x5C3A;&#x5BF8;&#x5C5E;&#x6027;"><a href="#&#x5C3A;&#x5BF8;&#x5C5E;&#x6027;" class="headerlink" title="&#x5C3A;&#x5BF8;&#x5C5E;&#x6027;"></a>&#x5C3A;&#x5BF8;&#x5C5E;&#x6027;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">Element.clientHeight   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x53EF;&#x89C1;&#x90E8;&#x5206;&#x7684;&#x9AD8;&#x5EA6;</span></div><div class="line">Element.clientWidth   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x53EF;&#x89C1;&#x90E8;&#x5206;&#x7684;&#x5BBD;&#x5EA6;</span></div><div class="line">Element.clientLeft   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x5DE6;&#x8FB9;&#x6846;&#x7684;&#x5BBD;&#x5EA6;</span></div><div class="line">Element.clientTop   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x9876;&#x90E8;&#x8FB9;&#x6846;&#x7684;&#x5BBD;&#x5EA6;</span></div><div class="line">Element.scrollHeight  <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x603B;&#x9AD8;&#x5EA6;</span></div><div class="line">Element.scrollWidth  <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x603B;&#x5BBD;&#x5EA6;</span></div><div class="line">Element.scrollLeft   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6C34;&#x5E73;&#x6EDA;&#x52A8;&#x6761;&#x5411;&#x53F3;&#x6EDA;&#x52A8;&#x7684;&#x50CF;&#x7D20;&#x6570;&#x503C;,&#x901A;&#x8FC7;&#x8BBE;&#x7F6E;&#x8FD9;&#x4E2A;&#x5C5E;&#x6027;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x5143;&#x7D20;&#x7684;&#x6EDA;&#x52A8;&#x4F4D;&#x7F6E;</span></div><div class="line">Element.scrollTop   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x5782;&#x76F4;&#x6EDA;&#x52A8;&#x5411;&#x4E0B;&#x6EDA;&#x52A8;&#x7684;&#x50CF;&#x7D20;&#x6570;&#x503C;</span></div><div class="line">Element.offsetHeight   <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x7684;&#x5782;&#x76F4;&#x9AD8;&#x5EA6;(&#x5305;&#x542B;border,padding)</span></div><div class="line">Element.offsetWidth    <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x7684;&#x6C34;&#x5E73;&#x5BBD;&#x5EA6;(&#x5305;&#x542B;border,padding)</span></div><div class="line">Element.offsetLeft    <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x5DE6;&#x4E0A;&#x89D2;&#x76F8;&#x5BF9;&#x4E8E;Element.offsetParent&#x8282;&#x70B9;&#x7684;&#x5782;&#x76F4;&#x504F;&#x79FB;</span></div><div class="line">Element.offsetTop   <span class="comment">//&#x8FD4;&#x56DE;&#x6C34;&#x5E73;&#x4F4D;&#x79FB;</span></div><div class="line">Element.style  <span class="comment">//&#x8FD4;&#x56DE;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x884C;&#x5185;&#x6837;&#x5F0F;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x8282;&#x70B9;&#x76F8;&#x5173;&#x5C5E;&#x6027;"><a href="#&#x8282;&#x70B9;&#x76F8;&#x5173;&#x5C5E;&#x6027;" class="headerlink" title="&#x8282;&#x70B9;&#x76F8;&#x5173;&#x5C5E;&#x6027;"></a>&#x8282;&#x70B9;&#x76F8;&#x5173;&#x5C5E;&#x6027;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">Element.children   <span class="comment">//&#x5305;&#x62EC;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6240;&#x6709;&#x5B50;&#x5143;&#x7D20;</span></div><div class="line">Element.childElementCount   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x5305;&#x542B;&#x7684;&#x5B50;HTML&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x4E2A;&#x6570;</span></div><div class="line">Element.firstElementChild  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x7B2C;&#x4E00;&#x4E2A;Element&#x5B50;&#x8282;&#x70B9;  </span></div><div class="line">Element.lastElementChild   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x8282;&#x70B9;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;Element&#x5B50;&#x8282;&#x70B9;  </span></div><div class="line">Element.nextElementSibling  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x4E0B;&#x4E00;&#x4E2A;&#x5144;&#x5F1F;HTML&#x5143;&#x7D20;&#x8282;&#x70B9;</span></div><div class="line">Element.previousElementSibling  <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x524D;&#x4E00;&#x4E2A;&#x5144;&#x5F1F;HTML&#x8282;&#x70B9;</span></div><div class="line">Element.offsetParent   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x7684;&#x6700;&#x9760;&#x8FD1;&#x7684;&#x3001;&#x5E76;&#x4E14;CSS&#x7684;position&#x5C5E;&#x6027;&#x4E0D;&#x7B49;&#x4E8E;static&#x7684;&#x7236;&#x5143;&#x7D20;&#x3002;</span></div></pre></td></tr></table></figure>
+<h3 id="Element&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;"><a href="#Element&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;" class="headerlink" title="Element&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;"></a>Element&#x8282;&#x70B9;&#x7684;&#x65B9;&#x6CD5;</h3><h3 id="&#x4F4D;&#x7F6E;&#x65B9;&#x6CD5;"><a href="#&#x4F4D;&#x7F6E;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4F4D;&#x7F6E;&#x65B9;&#x6CD5;"></a>&#x4F4D;&#x7F6E;&#x65B9;&#x6CD5;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">getBoundingClientRect()  </div><div class="line"><span class="comment">// getBoundingClientRect&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x5305;&#x542B;top,left,right,bottom,width,height // width&#x3001;height &#x5143;&#x7D20;&#x81EA;&#x8EAB;&#x5BBD;&#x9AD8;</span></div><div class="line"><span class="comment">// top &#x5143;&#x7D20;&#x4E0A;&#x5916;&#x8FB9;&#x754C;&#x8DDD;&#x7A97;&#x53E3;&#x6700;&#x4E0A;&#x9762;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line"><span class="comment">// right &#x5143;&#x7D20;&#x53F3;&#x5916;&#x8FB9;&#x754C;&#x8DDD;&#x7A97;&#x53E3;&#x6700;&#x4E0A;&#x9762;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line"><span class="comment">// bottom &#x5143;&#x7D20;&#x4E0B;&#x5916;&#x8FB9;&#x754C;&#x8DDD;&#x7A97;&#x53E3;&#x6700;&#x4E0A;&#x9762;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line"><span class="comment">// left &#x5143;&#x7D20;&#x5DE6;&#x5916;&#x8FB9;&#x754C;&#x8DDD;&#x7A97;&#x53E3;&#x6700;&#x4E0A;&#x9762;&#x7684;&#x8DDD;&#x79BB;</span></div><div class="line"><span class="comment">// width &#x5143;&#x7D20;&#x81EA;&#x8EAB;&#x5BBD;(&#x5305;&#x542B;border,padding) </span></div><div class="line"><span class="comment">// height &#x5143;&#x7D20;&#x81EA;&#x8EAB;&#x9AD8;(&#x5305;&#x542B;border,padding) </span></div><div class="line">getClientRects()   <span class="comment">//&#x8FD4;&#x56DE;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x5F62;&#x53C2;&#x7684;&#x6240;&#x6709;&#x77E9;&#x5F62;&#x3002;</span></div><div class="line"><span class="comment">// &#x5143;&#x7D20;&#x5728;&#x9875;&#x9762;&#x4E0A;&#x7684;&#x504F;&#x79FB;&#x91CF;  </span></div><div class="line"><span class="keyword">var</span> rect = el.getBoundingClientRect()  </div><div class="line"><span class="keyword">return</span> {   </div><div class="line">  <span class="attr">top</span>: rect.top + <span class="built_in">document</span>.body.scrollTop,   </div><div class="line">  <span class="attr">left</span>: rect.left + <span class="built_in">document</span>.body.scrollLeft  </div><div class="line">}</div></pre></td></tr></table></figure>
+<h3 id="&#x5C5E;&#x6027;&#x65B9;&#x6CD5;"><a href="#&#x5C5E;&#x6027;&#x65B9;&#x6CD5;" class="headerlink" title="&#x5C5E;&#x6027;&#x65B9;&#x6CD5;"></a>&#x5C5E;&#x6027;&#x65B9;&#x6CD5;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Element.getAttribute()&#xFF1A;&#x8BFB;&#x53D6;&#x6307;&#x5B9A;&#x5C5E;&#x6027;  </div><div class="line">Element.setAttribute()&#xFF1A;&#x8BBE;&#x7F6E;&#x6307;&#x5B9A;&#x5C5E;&#x6027;  </div><div class="line">Element.hasAttribute()&#xFF1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x503C;&#xFF0C;&#x8868;&#x793A;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x662F;&#x5426;&#x6709;&#x6307;&#x5B9A;&#x7684;&#x5C5E;&#x6027;  </div><div class="line">Element.removeAttribute()&#xFF1A;&#x79FB;&#x9664;&#x6307;&#x5B9A;&#x5C5E;&#x6027;</div></pre></td></tr></table></figure>
+<h3 id="&#x67E5;&#x627E;&#x65B9;&#x6CD5;"><a href="#&#x67E5;&#x627E;&#x65B9;&#x6CD5;" class="headerlink" title="&#x67E5;&#x627E;&#x65B9;&#x6CD5;"></a>&#x67E5;&#x627E;&#x65B9;&#x6CD5;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Element.querySelector()  </div><div class="line">Element.querySelectorAll()  </div><div class="line">Element.getElementsByTagName()  </div><div class="line">Element.getElementsByClassName()</div></pre></td></tr></table></figure>
+<h3 id="&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;"><a href="#&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;" class="headerlink" title="&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;"></a>&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">Element.addEventListener()&#xFF1A;&#x6DFB;&#x52A0;&#x4E8B;&#x4EF6;&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;  </div><div class="line">Element.removeEventListener()&#xFF1A;&#x79FB;&#x9664;&#x4E8B;&#x4EF6;&#x76D1;&#x542C;&#x51FD;&#x6570;  </div><div class="line">Element.dispatchEvent()&#xFF1A;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</div><div class="line"><span class="comment">//ie8</span></div><div class="line">Element.attachEvent(oneventName,listener)</div><div class="line">Element.detachEvent(oneventName,listener)</div><div class="line"><span class="comment">// event&#x5BF9;&#x8C61;  </span></div><div class="line"><span class="keyword">var</span> event = <span class="built_in">window</span>.event||event;    </div><div class="line"><span class="comment">// &#x4E8B;&#x4EF6;&#x7684;&#x76EE;&#x6807;&#x8282;&#x70B9;  </span></div><div class="line"><span class="keyword">var</span> target = event.target || event.srcElement;</div><div class="line"><span class="comment">// &#x4E8B;&#x4EF6;&#x4EE3;&#x7406;  </span></div><div class="line">ul.addEventListener(<span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params">event</span>) </span>{   </div><div class="line">  <span class="keyword">if</span> (event.target.tagName.toLowerCase() === <span class="string">&apos;li&apos;</span>) {   </div><div class="line">    <span class="built_in">console</span>.log(event.target.innerHTML)   </div><div class="line">  }  </div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="&#x5176;&#x4ED6;-1"><a href="#&#x5176;&#x4ED6;-1" class="headerlink" title="&#x5176;&#x4ED6;"></a>&#x5176;&#x4ED6;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">Element.scrollIntoView()   <span class="comment">//&#x6EDA;&#x52A8;&#x5F53;&#x524D;&#x5143;&#x7D20;&#xFF0C;&#x8FDB;&#x5165;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x53EF;&#x89C1;&#x533A;&#x57DF;</span></div><div class="line"><span class="comment">//&#x89E3;&#x6790;HTML&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x7136;&#x540E;&#x5C06;&#x751F;&#x6210;&#x7684;&#x8282;&#x70B9;&#x63D2;&#x5165;DOM&#x6811;&#x7684;&#x6307;&#x5B9A;&#x4F4D;&#x7F6E;&#x3002;</span></div><div class="line">Element.insertAdjacentHTML(where, htmlString); </div><div class="line">Element.insertAdjacentHTML(<span class="string">&apos;beforeBegin&apos;</span>, htmlString); <span class="comment">// &#x5728;&#x8BE5;&#x5143;&#x7D20;&#x524D;&#x63D2;&#x5165;  </span></div><div class="line">Element.insertAdjacentHTML(<span class="string">&apos;afterBegin&apos;</span>, htmlString); <span class="comment">// &#x5728;&#x8BE5;&#x5143;&#x7D20;&#x7B2C;&#x4E00;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x524D;&#x63D2;&#x5165; </span></div><div class="line">Element.insertAdjacentHTML(<span class="string">&apos;beforeEnd&apos;</span>, htmlString); <span class="comment">// &#x5728;&#x8BE5;&#x5143;&#x7D20;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x5B50;&#x5143;&#x7D20;&#x540E;&#x9762;&#x63D2;&#x5165; </span></div><div class="line">Element.insertAdjacentHTML(<span class="string">&apos;afterEnd&apos;</span>, htmlString); <span class="comment">// &#x5728;&#x8BE5;&#x5143;&#x7D20;&#x540E;&#x63D2;&#x5165;</span></div><div class="line">Element.remove()  <span class="comment">//&#x7528;&#x4E8E;&#x5C06;&#x5F53;&#x524D;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x4ECE;DOM&#x4E2D;&#x79FB;&#x9664;</span></div><div class="line">Element.focus()   <span class="comment">//&#x7528;&#x4E8E;&#x5C06;&#x5F53;&#x524D;&#x9875;&#x9762;&#x7684;&#x7126;&#x70B9;&#xFF0C;&#x8F6C;&#x79FB;&#x5230;&#x6307;&#x5B9A;&#x5143;&#x7D20;&#x4E0A;</span></div></pre></td></tr></table></figure>
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="vincentSea wechat" style="width: 200px; max-width: 100%;"/>
+    <div>一颗稻草的价值，到底是多少呢？想知道的话，就订阅吧！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/javascript/" rel="tag"># javascript</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/06/sublime-text-3-编辑器/" rel="next" title="sublime text 3 编辑器">
+                <i class="fa fa-chevron-left"></i> sublime text 3 编辑器
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/04/10/再谈preventDefault与stopPropagation/" rel="prev" title="再谈preventDefault与stopPropagation">
+                再谈preventDefault与stopPropagation <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/16203604.jpg"
+               alt="vincentSea" />
+          <p class="site-author-name" itemprop="name">vincentSea</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自文科班子的码农</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vincentSea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2235933440?refer_flag=1001030101_" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/56e17630731956005cb7f501" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#原生JS中DOM节点相关API合集"><span class="nav-number">1.</span> <span class="nav-text">原生JS中DOM节点相关API合集</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#节点属性"><span class="nav-number">1.1.</span> <span class="nav-text">节点属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#操作"><span class="nav-number">1.2.</span> <span class="nav-text">操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Document节点"><span class="nav-number">1.3.</span> <span class="nav-text">Document节点</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Document节点的属性"><span class="nav-number">1.3.1.</span> <span class="nav-text">Document节点的属性</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Document节点的方法"><span class="nav-number">1.4.</span> <span class="nav-text">Document节点的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#读写方法"><span class="nav-number">1.5.</span> <span class="nav-text">读写方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找节点"><span class="nav-number">1.6.</span> <span class="nav-text">查找节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#生成节点"><span class="nav-number">1.7.</span> <span class="nav-text">生成节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他"><span class="nav-number">1.8.</span> <span class="nav-text">其他</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element节点"><span class="nav-number">1.9.</span> <span class="nav-text">Element节点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element节点的属性"><span class="nav-number">1.10.</span> <span class="nav-text">Element节点的属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#特性属性"><span class="nav-number">1.11.</span> <span class="nav-text">特性属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#尺寸属性"><span class="nav-number">1.12.</span> <span class="nav-text">尺寸属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#节点相关属性"><span class="nav-number">1.13.</span> <span class="nav-text">节点相关属性</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Element节点的方法"><span class="nav-number">1.14.</span> <span class="nav-text">Element节点的方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#位置方法"><span class="nav-number">1.15.</span> <span class="nav-text">位置方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性方法"><span class="nav-number">1.16.</span> <span class="nav-text">属性方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找方法"><span class="nav-number">1.17.</span> <span class="nav-text">查找方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件方法"><span class="nav-number">1.18.</span> <span class="nav-text">事件方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#其他-1"><span class="nav-number">1.19.</span> <span class="nav-text">其他</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vincentSea</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+<!-- dudodo.cc Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f016dc5f4aaf617bc4f65b71b73cc257";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+<!--  -->
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f7ff3cf2ee114e7abad3793d8c8016e7",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+<!--   -->
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

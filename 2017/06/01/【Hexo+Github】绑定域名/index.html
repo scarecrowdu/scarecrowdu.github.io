@@ -1,0 +1,819 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/css/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="【Hexo+Github】绑定域名">
+<meta name="keywords" content="Hexo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【Hexo+Github】绑定域名">
+<meta property="og:url" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/index.html">
+<meta property="og:site_name" content="vincentSea">
+<meta property="og:description" content="【Hexo+Github】绑定域名">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/01.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/02.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/01.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/03.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/04.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/05.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/06.png">
+<meta property="og:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/07.png">
+<meta property="og:updated_time" content="2017-06-01T02:10:15.391Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="【Hexo+Github】绑定域名">
+<meta name="twitter:description" content="【Hexo+Github】绑定域名">
+<meta name="twitter:image" content="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/"/>
+
+
+
+
+
+  <title> 【Hexo+Github】绑定域名 | vincentSea </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">vincentSea</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个来自文科班子的码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/01/【Hexo+Github】绑定域名/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vincentSea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/16203604.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="vincentSea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                【Hexo+Github】绑定域名
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-01T10:10:15+08:00">
+                2017-06-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Hexo/" itemprop="url" rel="index">
+                    <span itemprop="name">Hexo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/06/01/【Hexo+Github】绑定域名/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  【Hexo+Github】绑定域名
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="&#x57DF;&#x540D;&#x8D2D;&#x4E70;"><a href="#&#x57DF;&#x540D;&#x8D2D;&#x4E70;" class="headerlink" title="&#x57DF;&#x540D;&#x8D2D;&#x4E70;"></a>&#x57DF;&#x540D;&#x8D2D;&#x4E70;</h3><p>&#x6211;&#x662F;&#x5728;<a href="https://www.aliyun.com/" target="_blank" rel="external">&#x963F;&#x91CC;&#x4E91;(https://www.aliyun.com/) </a>&#x8D2D;&#x4E70;&#x4E86;&#x4E00;&#x4E2A;&#x57DF;&#x540D;<a href="http://dudodo.cc/" target="_blank" rel="external">dudodo.cc</a></p>
+<p>&#x8D2D;&#x4E70;&#x57DF;&#x540D;&#xFF0C;&#x5F53;&#x7136;&#x8981;&#x770B;&#x770B;&#x4F60;&#x559C;&#x6B22;&#x7684;&#x57DF;&#x540D;&#x6709;&#x6CA1;&#x6709;&#x88AB;&#x5176;&#x4ED6;&#x4EBA;&#x8D2D;&#x4E70;&#x4E86;&#xFF0C;<a href="https://wanwang.aliyun.com/domain/?spm=5176.8142029.418687.12.X0cPxn" target="_blank" rel="external">&#x70B9;&#x51FB;&#x8FD9;&#x91CC;&#x67E5;&#x8BE2;</a><br><a id="more"></a><br><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/01.png" alt="&#x57DF;&#x540D;"></p>
+<h3 id="&#x8BBE;&#x7F6E;DNSpod"><a href="#&#x8BBE;&#x7F6E;DNSpod" class="headerlink" title="&#x8BBE;&#x7F6E;DNSpod"></a>&#x8BBE;&#x7F6E;DNSpod</h3><p><a href="https://www.dnspod.cn" target="_blank" rel="external">&#x6CE8;&#x518C;DNSpod</a>&#xFF0C;&#x6DFB;&#x52A0;&#x57DF;&#x540D;&#xFF0C;&#x6DFB;&#x52A0;&#x8BB0;&#x5F55;&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x8BBE;&#x7F6E;&#x3002;</p>
+<p><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/02.png" alt="&#x8BBE;&#x7F6E;DNSpod"></p>
+<h3 id="DNS&#x5730;&#x5740;&#x89E3;&#x6790;"><a href="#DNS&#x5730;&#x5740;&#x89E3;&#x6790;" class="headerlink" title="DNS&#x5730;&#x5740;&#x89E3;&#x6790;"></a>DNS&#x5730;&#x5740;&#x89E3;&#x6790;</h3><ol>
+<li><p>&#x70B9;&#x51FB;&#x7BA1;&#x7406;<br><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/01.png" alt="&#x57DF;&#x540D;"></p>
+</li>
+<li><p>DNS&#x4FEE;&#x6539;/&#x521B;&#x5EFA; &#xFF08;&#x8FD9;&#x91CC;&#x6211;&#x5DF2;&#x7ECF;&#x8BBE;&#x7F6E;&#x8FC7;&#x4E86;&#xFF0C;&#x70B9;&#x51FB;&#x4FEE;&#x6539;&#x57DF;&#x540D;DNS&#xFF09;<br><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/03.png" alt="DNS&#x5730;&#x5740;&#x89E3;&#x6790;"></p>
+</li>
+<li><p>DNS&#x521B;&#x5EFA;&#x5982;&#x4E0B;<br><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/04.png" alt="DNS&#x521B;&#x5EFA;"></p>
+</li>
+</ol>
+<h3 id="ping-&#x57DF;&#x540D;"><a href="#ping-&#x57DF;&#x540D;" class="headerlink" title="ping &#x57DF;&#x540D;"></a>ping &#x57DF;&#x540D;</h3><p>&#x57DF;&#x540D;&#x8BBE;&#x7F6E;&#x548C;&#x89E3;&#x6790;&#x6210;&#x529F;&#xFF0C;&#x5927;&#x6982;&#x7B49;&#x51E0;&#x5206;&#x949F;&#x4F1A;&#x751F;&#x6548;&#x3002;&#x5224;&#x65AD;&#x751F;&#x6548;&#xFF0C;&#x5BF9;&#x57DF;&#x540D;&#x6267;&#x884C;ping&#x547D;&#x4EE4;</p>
+<p>&#x7ED3;&#x679C;&#x5982;&#x4E0B;&#xFF0C;&#x5C31;&#x8BF4;&#x660E;&#x8BBE;&#x7F6E;&#x6210;&#x529F;&#x4E86;<br><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/05.png" alt="ping &#x57DF;&#x540D;"></p>
+<h3 id="&#x521B;&#x5EFA;CNAME&#x6587;&#x4EF6;"><a href="#&#x521B;&#x5EFA;CNAME&#x6587;&#x4EF6;" class="headerlink" title="&#x521B;&#x5EFA;CNAME&#x6587;&#x4EF6;"></a>&#x521B;&#x5EFA;CNAME&#x6587;&#x4EF6;</h3><p>&#x5728;source&#x6587;&#x4EF6;&#x5939;&#x91CC;&#x521B;&#x5EFA;CNAME&#x6587;&#x4EF6;&#xFF0C;&#x4E0D;&#x5E26;&#x4EFB;&#x4F55;&#x540E;&#x7F00;&#xFF0C;&#x91CC;&#x9762;&#x6DFB;&#x52A0;&#x4F60;&#x7684;&#x57DF;&#x540D;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#xFF1A;dudodo.cc&#xFF08;&#x6CE8;&#x610F;&#x524D;&#x9762;&#x4E0D;&#x6DFB;&#x52A0;http://&#xFF09;</p>
+<p><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/06.png" alt="&#x521B;&#x5EFA;CNAME&#x6587;&#x4EF6;"></p>
+<h3 id="&#x68C0;&#x9A8C;&#x6210;&#x679C;&#x5566;"><a href="#&#x68C0;&#x9A8C;&#x6210;&#x679C;&#x5566;" class="headerlink" title="&#x68C0;&#x9A8C;&#x6210;&#x679C;&#x5566;"></a>&#x68C0;&#x9A8C;&#x6210;&#x679C;&#x5566;</h3><p>&#x547D;&#x4EE4; hexo d -g &#x8FD9;&#x4E2A;&#x547D;&#x4EE4;&#x4FDD;&#x8BC1;CNAME&#x6587;&#x4EF6;&#x4E00;&#x8D77;&#x4E0A;&#x4F20;&#x5230;github&#x91CC;</p>
+<p><img src="/2017/06/01/&#x3010;Hexo+Github&#x3011;&#x7ED1;&#x5B9A;&#x57DF;&#x540D;/07.png" alt="&#x68C0;&#x9A8C;&#x6210;&#x679C;&#x5566;"></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="vincentSea wechat" style="width: 200px; max-width: 100%;"/>
+    <div>一颗稻草的价值，到底是多少呢？想知道的话，就订阅吧！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/01/jQuery操作checkbox、radio、select选择/" rel="next" title="jQuery操作checkbox、radio、select选择">
+                <i class="fa fa-chevron-left"></i> jQuery操作checkbox、radio、select选择
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/06/01/前端实现图片转base64/" rel="prev" title="前端实现图片转base64">
+                前端实现图片转base64 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/16203604.jpg"
+               alt="vincentSea" />
+          <p class="site-author-name" itemprop="name">vincentSea</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自文科班子的码农</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vincentSea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2235933440?refer_flag=1001030101_" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/56e17630731956005cb7f501" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#域名购买"><span class="nav-number">1.</span> <span class="nav-text">域名购买</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置DNSpod"><span class="nav-number">2.</span> <span class="nav-text">设置DNSpod</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DNS地址解析"><span class="nav-number">3.</span> <span class="nav-text">DNS地址解析</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ping-域名"><span class="nav-number">4.</span> <span class="nav-text">ping 域名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建CNAME文件"><span class="nav-number">5.</span> <span class="nav-text">创建CNAME文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#检验成果啦"><span class="nav-number">6.</span> <span class="nav-text">检验成果啦</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vincentSea</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+<!-- dudodo.cc Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f016dc5f4aaf617bc4f65b71b73cc257";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+<!--  -->
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f7ff3cf2ee114e7abad3793d8c8016e7",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+<!--   -->
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

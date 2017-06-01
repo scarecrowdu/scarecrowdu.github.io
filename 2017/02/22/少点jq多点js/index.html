@@ -1,0 +1,783 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="js," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/css/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="Document Ready &amp;#x4E8B;&amp;#x4EF6;123document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function() {      // do something...}, false)">
+<meta name="keywords" content="js">
+<meta property="og:type" content="article">
+<meta property="og:title" content="少点jq多点js">
+<meta property="og:url" content="http://yoursite.com/2017/02/22/少点jq多点js/index.html">
+<meta property="og:site_name" content="vincentSea">
+<meta property="og:description" content="Document Ready &amp;#x4E8B;&amp;#x4EF6;123document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function() {      // do something...}, false)">
+<meta property="og:updated_time" content="2017-06-01T02:10:15.455Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="少点jq多点js">
+<meta name="twitter:description" content="Document Ready &amp;#x4E8B;&amp;#x4EF6;123document.addEventListener(&amp;quot;DOMContentLoaded&amp;quot;, function() {      // do something...}, false)">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/22/少点jq多点js/"/>
+
+
+
+
+
+  <title> 少点jq多点js | vincentSea </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">vincentSea</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个来自文科班子的码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/22/少点jq多点js/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vincentSea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/16203604.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="vincentSea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                少点jq多点js
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-02-22T16:18:47+08:00">
+                2017-02-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2017/02/22/少点jq多点js/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="Document-Ready-&#x4E8B;&#x4EF6;"><a href="#Document-Ready-&#x4E8B;&#x4EF6;" class="headerlink" title="Document Ready &#x4E8B;&#x4EF6;"></a>Document Ready &#x4E8B;&#x4EF6;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.addEventListener(<span class="string">&quot;DOMContentLoaded&quot;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line">      <span class="comment">// do something...</span></div><div class="line">}, <span class="literal">false</span>)</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<h3 id="&#x67E5;&#x627E;&#x3001;&#x9009;&#x62E9;&#x9875;&#x9762;&#x5143;&#x7D20;"><a href="#&#x67E5;&#x627E;&#x3001;&#x9009;&#x62E9;&#x9875;&#x9762;&#x5143;&#x7D20;" class="headerlink" title="&#x67E5;&#x627E;&#x3001;&#x9009;&#x62E9;&#x9875;&#x9762;&#x5143;&#x7D20;"></a>&#x67E5;&#x627E;&#x3001;&#x9009;&#x62E9;&#x9875;&#x9762;&#x5143;&#x7D20;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x6309;ID&#x67E5;&#x627E;</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;elDiv&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x6309;class&#x540D;&#x641C;&#x7D22; (&#x8FD4;&#x56DE;&#x5E26;&#x6709;&#x6307;&#x5B9A;&#x540D;&#x79F0;&#x7684;&#x5BF9;&#x8C61;&#x96C6;&#x5408;)</span></div><div class="line"><span class="built_in">document</span>.getElementsByClassName(<span class="string">&quot;item&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x6309;&#x6807;&#x8BB0;&#x540D;&#x641C;&#x7D22; (&#x8FD4;&#x56DE;&#x5E26;&#x6709;&#x6307;&#x5B9A;&#x6807;&#x7B7E;&#x540D;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x96C6;&#x5408;)</span></div><div class="line"><span class="built_in">document</span>.getElementsByTagName(<span class="string">&quot;li&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">// &#x6309;&#x5B50;&#x5143;&#x7D20;&#x641C;&#x7D22;:</span></div><div class="line"><span class="built_in">document</span>.getElementById(<span class="string">&quot;elDiv&quot;</span>).getElementsByClassName(<span class="string">&quot;item&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x4E2D;&#x5339;&#x914D;&#x6307;&#x5B9A;&#x7684;CSS&#x9009;&#x62E9;&#x5668;&#x7684;&#x7B2C;&#x4E00;&#x5143;&#x7D20; (&#x5B58;&#x50A8;&#x4E86;&#x6240;&#x6709;&#x5339;&#x914D;&#x7684;&#x5143;&#x7D20;)</span></div><div class="line"><span class="built_in">document</span>.querySelector(<span class="string">&quot;#elDiv&quot;</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> firstClass = <span class="built_in">document</span>.querySelector(<span class="string">&apos;.some-class&apos;</span>)</div><div class="line"><span class="keyword">var</span> firstId    = <span class="built_in">document</span>.querySelector(<span class="string">&apos;#some-id&apos;</span>)</div><div class="line"><span class="keyword">var</span> firstData  = <span class="built_in">document</span>.querySelector(<span class="string">&apos;[data-example]&apos;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x8FD4;&#x56DE;&#x6587;&#x6863;&#x4E2D;&#x5339;&#x914D;&#x7684;CSS&#x9009;&#x62E9;&#x5668;&#x7684;&#x6240;&#x6709;&#x5143;&#x7D20;&#x8282;&#x70B9;&#x5217;&#x8868; (&#x5B58;&#x50A8;&#x4E86;&#x6240;&#x6709;&#x5339;&#x914D;&#x7684;&#x5143;&#x7D20;)</span></div><div class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">&quot;.box&quot;</span>)</div><div class="line"><span class="built_in">document</span>.querySelectorAll(<span class="string">&quot;ul &gt; li&quot;</span>)</div><div class="line"></div><div class="line"><span class="keyword">var</span> allClasses = <span class="built_in">document</span>.querySelectorAll(<span class="string">&apos;.some-class&apos;</span>)</div><div class="line"><span class="keyword">var</span> allData    = <span class="built_in">document</span>.querySelectorAll(<span class="string">&apos;[data-example]&apos;</span>)</div></pre></td></tr></table></figure>
+<h3 id="Html&#x3001;-Text&#x3001;-Vaule&#x3001;-Style"><a href="#Html&#x3001;-Text&#x3001;-Vaule&#x3001;-Style" class="headerlink" title="Html&#x3001; Text&#x3001; Vaule&#x3001; Style"></a>Html&#x3001; Text&#x3001; Vaule&#x3001; Style</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Html</span></div><div class="line">element.innerHTML = string</div><div class="line"></div><div class="line"><span class="comment">//Text</span></div><div class="line">element.innerText = string</div><div class="line">element.textContent = string <span class="comment">//IE9+</span></div><div class="line"></div><div class="line"><span class="comment">//Vaule</span></div><div class="line">element.vaule = string</div><div class="line"></div><div class="line"><span class="comment">//Style</span></div><div class="line">element.style.borderWidth = <span class="string">&apos;20px&apos;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;&#x6837;&#x5F0F;&#x540D;"><a href="#&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;&#x6837;&#x5F0F;&#x540D;" class="headerlink" title="&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;&#x6837;&#x5F0F;&#x540D;"></a>&#x6DFB;&#x52A0;&#x548C;&#x5220;&#x9664;&#x6837;&#x5F0F;&#x540D;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// &#x7B2C;&#x4E00;&#x79CD;&#xFF08;&#x517C;&#x5BB9;&#x5404;&#x5927;&#x6D4F;&#x89C8;&#x5668;&#xFF09;</span></div><div class="line"><span class="comment">//&#x6DFB;&#x52A0;&#x6837;&#x5F0F;</span></div><div class="line">element.className = <span class="string">&quot;box&quot;</span> <span class="comment">//&#x4F1A;&#x66FF;&#x6362;&#x4E4B;&#x524D;&#x5143;&#x7D20;&#x7684;&#x6837;&#x5F0F;</span></div><div class="line">element.className += <span class="string">&quot; box&quot;</span> <span class="comment">//&#x4E0D;&#x66FF;&#x6362;&#x66FF;&#x6362;&#x4E4B;&#x524D;&#x5143;&#x7D20;&#x7684;&#x6837;&#x5F0F;(&#x8BB0;&#x5F97;&#x7A7A;&#x683C;)</span></div><div class="line"></div><div class="line"> <span class="comment">// &#x5220;&#x9664;&#x6837;&#x5F0F;&#x540D;, takes two params: element and classname</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeClass</span>(<span class="params">el, cls</span>) </span>{</div><div class="line">  <span class="keyword">var</span> reg = <span class="keyword">new</span> <span class="built_in">RegExp</span>(<span class="string">&quot;(\\s|^)&quot;</span> + cls + <span class="string">&quot;(\\s|$)&quot;</span>);</div><div class="line">  el.className = el.className.replace(reg, <span class="string">&quot; &quot;</span>).replace(<span class="regexp">/(^\s*)|(\s*$)/g</span>,<span class="string">&quot;&quot;</span>);</div><div class="line">}</div><div class="line">removeClass(el,cls)</div><div class="line"></div><div class="line"><span class="comment">// &#x7B2C;&#x4E8C;&#x79CD; (IE10+)</span></div><div class="line">element.classList.add(<span class="string">&quot;box&quot;</span>)</div><div class="line">element.classList.remove(<span class="string">&quot;box&quot;</span>)</div></pre></td></tr></table></figure>
+<h3 id="&#x53CD;&#x8F6C;&#x6837;&#x5F0F;"><a href="#&#x53CD;&#x8F6C;&#x6837;&#x5F0F;" class="headerlink" title="&#x53CD;&#x8F6C;&#x6837;&#x5F0F;"></a>&#x53CD;&#x8F6C;&#x6837;&#x5F0F;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">element.classList.toggle(<span class="string">&quot;box&quot;</span>)</div></pre></td></tr></table></figure>
+<h3 id="&#x521B;&#x5EFA;&#x5143;&#x7D20;"><a href="#&#x521B;&#x5EFA;&#x5143;&#x7D20;" class="headerlink" title="&#x521B;&#x5EFA;&#x5143;&#x7D20;"></a>&#x521B;&#x5EFA;&#x5143;&#x7D20;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="built_in">document</span>.createElement(el)</div><div class="line"></div><div class="line">element.addEventListener(<span class="string">&apos;click&apos;</span>, <span class="function"><span class="keyword">function</span> (<span class="params"></span>)</span>{</div><div class="line">    <span class="keyword">let</span> div = <span class="built_in">document</span>.createElement(<span class="string">&quot;div&quot;</span>) </div><div class="line">    div.innerHTML = <span class="string">&apos;&lt;p&gt;&#x6211;&#x662F;&#x65B0;&#x521B;&#x5EFA;&#x7684;p&#x5143;&#x7D20;&lt;/p&gt;&apos;</span></div><div class="line">    el.appendChild(cEl)</div><div class="line">},<span class="literal">false</span>)</div><div class="line"></div><div class="line"><span class="comment">// jQuery &#x5B9E;&#x73B0;</span></div><div class="line">$(<span class="string">&apos;.el&apos;</span>).on(<span class="string">&apos;event&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line"></div><div class="line">});</div><div class="line"></div><div class="line"><span class="comment">// &#x539F;&#x751F;JavaScript&#x5B9E;&#x73B0;</span></div><div class="line">[].forEach.call(<span class="built_in">document</span>.querySelectorAll(<span class="string">&apos;.el&apos;</span>), <span class="function"><span class="keyword">function</span> (<span class="params">el</span>) </span>{</div><div class="line">  el.addEventListener(<span class="string">&apos;event&apos;</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>{</div><div class="line"></div><div class="line">  }, <span class="literal">false</span>);</div><div class="line">});</div></pre></td></tr></table></figure>
+<h3 id="&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x9645;&#x5BBD;&#x5EA6;&#x9AD8;&#x5EA6;"><a href="#&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x9645;&#x5BBD;&#x5EA6;&#x9AD8;&#x5EA6;" class="headerlink" title="&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x9645;&#x5BBD;&#x5EA6;&#x9AD8;&#x5EA6;"></a>&#x5143;&#x7D20;&#x7684;&#x5B9E;&#x9645;&#x5BBD;&#x5EA6;&#x9AD8;&#x5EA6;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">element.offsetHeight <span class="comment">//&#x9AD8;&#x5EA6;</span></div><div class="line">element.offsetWidth  <span class="comment">//&#x5BBD;&#x5EA6;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x663E;&#x793A;&#x9690;&#x85CF;"><a href="#&#x663E;&#x793A;&#x9690;&#x85CF;" class="headerlink" title="&#x663E;&#x793A;&#x9690;&#x85CF;"></a>&#x663E;&#x793A;&#x9690;&#x85CF;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">element.style.display  = <span class="string">&apos;&apos;</span>     <span class="comment">//show</span></div><div class="line">element.style.display  = <span class="string">&apos;none&apos;</span> <span class="comment">//hide</span></div></pre></td></tr></table></figure>
+<h3 id="Remove&#x3001;-After&#x3001;-Before&#x3001;-Children"><a href="#Remove&#x3001;-After&#x3001;-Before&#x3001;-Children" class="headerlink" title="Remove&#x3001; After&#x3001; Before&#x3001; Children"></a>Remove&#x3001; After&#x3001; Before&#x3001; Children</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Remove</span></div><div class="line">element.parentNode.removeChild(element)</div><div class="line"></div><div class="line"><span class="comment">//After</span></div><div class="line">element.insertAdjacentHTML(<span class="string">&apos;afterend&apos;</span>, htmlString) </div><div class="line"></div><div class="line"><span class="comment">//Before</span></div><div class="line">element.insertAdjacentHTML(<span class="string">&apos;beforebegin&apos;</span>, htmlString) </div><div class="line"></div><div class="line"><span class="comment">//Children</span></div><div class="line">elemnt.children</div></pre></td></tr></table></figure>
+<h3 id="&#x590D;&#x5236;&#x3001;&#x514B;&#x9686;&#x5143;&#x7D20;-Clone"><a href="#&#x590D;&#x5236;&#x3001;&#x514B;&#x9686;&#x5143;&#x7D20;-Clone" class="headerlink" title="&#x590D;&#x5236;&#x3001;&#x514B;&#x9686;&#x5143;&#x7D20; Clone"></a>&#x590D;&#x5236;&#x3001;&#x514B;&#x9686;&#x5143;&#x7D20; Clone</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">elemnt.cloneNode(<span class="literal">true</span>)</div></pre></td></tr></table></figure>
+<h3 id="Parent&#x3001;-Next&#x3001;Prev"><a href="#Parent&#x3001;-Next&#x3001;Prev" class="headerlink" title="Parent&#x3001; Next&#x3001;Prev"></a>Parent&#x3001; Next&#x3001;Prev</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//Parent</span></div><div class="line">element.parentNode</div><div class="line"></div><div class="line"><span class="comment">//Next</span></div><div class="line">element.previousElementSibling</div><div class="line"></div><div class="line"><span class="comment">//Prev</span></div><div class="line">element.nextElementSibling</div></pre></td></tr></table></figure>
+<h3 id="&#x5220;&#x9664;&#x5143;&#x7D20;"><a href="#&#x5220;&#x9664;&#x5143;&#x7D20;" class="headerlink" title="&#x5220;&#x9664;&#x5143;&#x7D20;"></a>&#x5220;&#x9664;&#x5143;&#x7D20;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// jQuery &#x5B9E;&#x73B0;</span></div><div class="line">$(<span class="string">&apos;.el&apos;</span>).remove();</div><div class="line"></div><div class="line"><span class="comment">// &#x539F;&#x751F;JavaScript&#x5B9E;&#x73B0;</span></div><div class="line">remove(<span class="string">&apos;.el&apos;</span>);</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">remove</span>(<span class="params">el</span>) </span>{</div><div class="line">  <span class="keyword">var</span> toRemove = <span class="built_in">document</span>.querySelector(el);</div><div class="line"></div><div class="line">  toRemove.parentNode.removeChild(toRemove);</div><div class="line">}</div></pre></td></tr></table></figure>
+<h3 id="Trim"><a href="#Trim" class="headerlink" title="Trim"></a>Trim</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">string.replace(<span class="regexp">/^\s+|\s+$/g</span>, <span class="string">&apos;&apos;</span>) <span class="comment">//IE8+</span></div><div class="line">string.trim() <span class="comment">//IE9+</span></div></pre></td></tr></table></figure>
+<h3 id="&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x79FB;&#x9664;"><a href="#&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x79FB;&#x9664;" class="headerlink" title="&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x79FB;&#x9664;"></a>&#x4E8B;&#x4EF6;&#x7ED1;&#x5B9A;&#x79FB;&#x9664;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//IE8+</span></div><div class="line"><span class="comment">//&#x7ED1;&#x5B9A;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">addEventListener</span>(<span class="params">el, eventName, handler</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (el.addEventListener) {</div><div class="line">    el.addEventListener(eventName, handler);</div><div class="line">  } <span class="keyword">else</span> {</div><div class="line">    el.attachEvent(<span class="string">&apos;on&apos;</span> + eventName, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>{</div><div class="line">      handler.call(el);</div><div class="line">    });</div><div class="line">  }</div><div class="line">}</div><div class="line"></div><div class="line">addEventListener(el, eventName, handler)</div><div class="line"><span class="comment">//&#x79FB;&#x9664;</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">removeEventListener</span>(<span class="params">el, eventName, handler</span>) </span>{</div><div class="line">  <span class="keyword">if</span> (el.removeEventListener)</div><div class="line">    el.removeEventListener(eventName, handler);</div><div class="line">  <span class="keyword">else</span></div><div class="line">    el.detachEvent(<span class="string">&apos;on&apos;</span> + eventName, handler);</div><div class="line">}</div><div class="line"></div><div class="line">removeEventListener(el, eventName, handler);</div><div class="line"></div><div class="line"></div><div class="line"><span class="comment">//IE9+</span></div><div class="line">element.addEventListener(eventName,callback,<span class="literal">false</span>) <span class="comment">//&#x7ED1;&#x5B9A;</span></div><div class="line">element.removeEventListener(eventName,callback,<span class="literal">false</span>) <span class="comment">//&#x79FB;&#x9664;</span></div></pre></td></tr></table></figure>
+<h3 id="&#x641C;&#x7D22;&#x7279;&#x6B8A;&#x5143;&#x7D20;"><a href="#&#x641C;&#x7D22;&#x7279;&#x6B8A;&#x5143;&#x7D20;" class="headerlink" title="&#x641C;&#x7D22;&#x7279;&#x6B8A;&#x5143;&#x7D20;"></a>&#x641C;&#x7D22;&#x7279;&#x6B8A;&#x5143;&#x7D20;</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//&#x6587;&#x6863;&#x7684;&#x6839;&#x8282;&#x70B9;</span></div><div class="line"><span class="built_in">document</span>.documentElement  ===  $(<span class="string">&quot;html&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x6587;&#x6863;&#x7684;head&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.head === $(<span class="string">&quot;head&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x6587;&#x6863;&#x7684;body&#x5143;&#x7D20;</span></div><div class="line"><span class="built_in">document</span>.body === $(<span class="string">&quot;body&quot;</span>)</div><div class="line"></div><div class="line"><span class="comment">//&#x6587;&#x6863;&#x7684;&#x6807;&#x9898;</span></div><div class="line"><span class="built_in">document</span>.title</div></pre></td></tr></table></figure>
+<p><a href="http://www.webhek.com/apps/you-do-not-need-jquery/#add_class" target="_blank" rel="external">&#x53C2;&#x8003;&#x6587;&#x732E;</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="vincentSea wechat" style="width: 200px; max-width: 100%;"/>
+    <div>一颗稻草的价值，到底是多少呢？想知道的话，就订阅吧！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/js/" rel="tag"># js</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/09/04/" rel="next" title="基于vue1.0开发的移动端H5积分商城项目">
+                <i class="fa fa-chevron-left"></i> 基于vue1.0开发的移动端H5积分商城项目
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/25/字符串与数组/" rel="prev" title="字符串与数组">
+                字符串与数组 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/16203604.jpg"
+               alt="vincentSea" />
+          <p class="site-author-name" itemprop="name">vincentSea</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自文科班子的码农</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vincentSea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2235933440?refer_flag=1001030101_" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/56e17630731956005cb7f501" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Document-Ready-事件"><span class="nav-number">1.</span> <span class="nav-text">Document Ready 事件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#查找、选择页面元素"><span class="nav-number">2.</span> <span class="nav-text">查找、选择页面元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Html、-Text、-Vaule、-Style"><span class="nav-number">3.</span> <span class="nav-text">Html、 Text、 Vaule、 Style</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#添加和删除样式名"><span class="nav-number">4.</span> <span class="nav-text">添加和删除样式名</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#反转样式"><span class="nav-number">5.</span> <span class="nav-text">反转样式</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#创建元素"><span class="nav-number">6.</span> <span class="nav-text">创建元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#元素的实际宽度高度"><span class="nav-number">7.</span> <span class="nav-text">元素的实际宽度高度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#显示隐藏"><span class="nav-number">8.</span> <span class="nav-text">显示隐藏</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Remove、-After、-Before、-Children"><span class="nav-number">9.</span> <span class="nav-text">Remove、 After、 Before、 Children</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#复制、克隆元素-Clone"><span class="nav-number">10.</span> <span class="nav-text">复制、克隆元素 Clone</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Parent、-Next、Prev"><span class="nav-number">11.</span> <span class="nav-text">Parent、 Next、Prev</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除元素"><span class="nav-number">12.</span> <span class="nav-text">删除元素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trim"><span class="nav-number">13.</span> <span class="nav-text">Trim</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#事件绑定移除"><span class="nav-number">14.</span> <span class="nav-text">事件绑定移除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#搜索特殊元素"><span class="nav-number">15.</span> <span class="nav-text">搜索特殊元素</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vincentSea</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+<!-- dudodo.cc Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f016dc5f4aaf617bc4f65b71b73cc257";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+<!--  -->
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f7ff3cf2ee114e7abad3793d8c8016e7",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+<!--   -->
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>

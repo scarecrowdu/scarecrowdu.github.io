@@ -1,0 +1,841 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+  <link href="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.min.css" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+  
+
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.2/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="demo," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/css/images/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="基于vue1.0开发的移动端H5积分商城项目">
+<meta name="keywords" content="demo">
+<meta property="og:type" content="article">
+<meta property="og:title" content="基于vue1.0开发的移动端H5积分商城项目">
+<meta property="og:url" content="http://yoursite.com/2016/12/09/04/index.html">
+<meta property="og:site_name" content="vincentSea">
+<meta property="og:description" content="基于vue1.0开发的移动端H5积分商城项目">
+<meta property="og:image" content="http://yoursite.com/2016/12/09/04/demo.gif">
+<meta property="og:updated_time" content="2017-06-01T02:10:15.235Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="基于vue1.0开发的移动端H5积分商城项目">
+<meta name="twitter:description" content="基于vue1.0开发的移动端H5积分商城项目">
+<meta name="twitter:image" content="http://yoursite.com/2016/12/09/04/demo.gif">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/12/09/04/"/>
+
+
+
+
+
+  <title> 基于vue1.0开发的移动端H5积分商城项目 | vincentSea </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+ 
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">vincentSea</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">一个来自文科班子的码农</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-life">
+          <a href="/life" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            生活
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/09/04/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="vincentSea">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/16203604.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="vincentSea">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                基于vue1.0开发的移动端H5积分商城项目
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-09T16:23:42+08:00">
+                2016-12-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Demo/" itemprop="url" rel="index">
+                    <span itemprop="name">Demo</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a class="cloud-tie-join-count" href="/2016/12/09/04/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count join-count" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+              <div class="post-description">
+                  基于vue1.0开发的移动端H5积分商城项目
+              </div>
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="&#x9879;&#x76EE;"><a href="#&#x9879;&#x76EE;" class="headerlink" title="&#x9879;&#x76EE;"></a>&#x9879;&#x76EE;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&#x57FA;&#x4E8E;vue@1.0&#x5F00;&#x53D1;&#x7684;&#x79FB;&#x52A8;&#x7AEF;H5&#x79EF;&#x5206;&#x5546;&#x57CE;&#x9879;&#x76EE;</div><div class="line">vue</div><div class="line">vue-ruoter</div><div class="line">vue-resource</div><div class="line">webpack</div></pre></td></tr></table></figure>
+<h2 id="Github"><a href="#Github" class="headerlink" title="Github "></a>Github <iframe src="//ghbtns.com/github-btn.html?user=vincentSea&amp;repo=vueWebapp&amp;type=watch&amp;count=true" allowtransparency="true" frameborder="0" scrolling="0" width="120" height="20"></iframe></h2><a id="more"></a>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#github&#x4ED3;&#x5E93;url</span></div><div class="line">git <span class="built_in">clone</span> https://github.com/vincentSea/vueWebapp.git</div><div class="line"> or</div><div class="line">git <span class="built_in">clone</span> git@github.com:vincentSea/vueWebapp.git</div></pre></td></tr></table></figure>
+<p>&#x9879;&#x76EE;&#x5730;&#x5740; : <a href="https://github.com/vincentSea/vueWebapp" target="_blank" rel="external">https://github.com/vincentSea/vueWebapp</a></p>
+<h2 id="&#x793A;&#x4F8B;"><a href="#&#x793A;&#x4F8B;" class="headerlink" title="&#x793A;&#x4F8B;"></a>&#x793A;&#x4F8B;</h2><p><a href="https://dodov.github.io/vueWebapp/index.html" target="_blank" rel="external">demo&#x4F20;&#x9001;&#x95E8;</a></p>
+<p><img src="/2016/12/09/04/demo.gif" width="375" height="667"></p>
+
+
+<h2 id="&#x8BF4;&#x660E;"><a href="#&#x8BF4;&#x660E;" class="headerlink" title="&#x8BF4;&#x660E;"></a>&#x8BF4;&#x660E;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&#x56E0;&#x8BE5;&#x4F8B;&#x5B50;&#x662F;&#x4EE5;&#x516C;&#x53F8;&#x9879;&#x76EE;&#x5F00;&#x53D1;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4EC5;&#x63D0;&#x4F9B;&#x5B66;&#x4E60;&#x53C2;&#x8003;</div><div class="line">&#x5982;&#x6709;&#x7591;&#x95EE;&#xFF1A;QQ:1085231006</div><div class="line">&#x53EF;&#x4EE5;&#x7684;&#x8BDD; GitHub&#x7ED9;&#x4E2A;star&#xFF01;&#xFF01;&#xFF01;</div></pre></td></tr></table></figure>
+<h2 id="&#x8FD0;&#x884C;"><a href="#&#x8FD0;&#x884C;" class="headerlink" title="&#x8FD0;&#x884C;"></a>&#x8FD0;&#x884C;</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#&#x5B89;&#x88C5;&#x4F9D;&#x8D56;&#x6A21;&#x5757;</span></div><div class="line">npm install</div><div class="line">cnpm install [&#x524D;&#x63D0;&#x5B89;&#x88C5;&#x4E86;&#x6DD8;&#x5B9D;&#x6E90;](http://npm.taobao.org/)</div></pre></td></tr></table></figure>
+<hr>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#&#x9879;&#x76EE;&#x542F;&#x52A8;&#x547D;&#x4EE4;</span></div><div class="line">npm run dev   ----- localhost:8080  </div><div class="line">npm run ip    ----- &#x672C;&#x673A;ip:9000</div><div class="line">npm run build ----- &#x6253;&#x5305;&#x9879;&#x76EE;</div></pre></td></tr></table></figure>
+<h2 id="Mock-js"><a href="#Mock-js" class="headerlink" title="Mock.js"></a>Mock.js</h2><p>&#x4F7F;&#x7528;<a href="http://mockjs.com/" target="_blank" rel="external">Mock.js</a>&#x6A21;&#x62DF;&#x6570;&#x636E;<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># &#x5B89;&#x88C5;</span></div><div class="line">npm install mockjs --save</div></pre></td></tr></table></figure></p>
+<h2 id="&#x76EE;&#x5F55;&#x7ED3;&#x6784;"><a href="#&#x76EE;&#x5F55;&#x7ED3;&#x6784;" class="headerlink" title="&#x76EE;&#x5F55;&#x7ED3;&#x6784;"></a>&#x76EE;&#x5F55;&#x7ED3;&#x6784;</h2><pre>
+
+&#x2502;  .gitattributes
+&#x2502;  .gitignore               # &#x5FFD;&#x7565;&#x65E0;&#x9700;git&#x63A7;&#x5236;&#x7684;&#x6587;&#x4EF6;  &#x6BD4;&#x5982; node_modules
+&#x2502;  favicon.ico
+&#x2502;  index.html               # &#x9996;&#x9875;
+&#x2502;  index.tpl                # &#x9996;&#x9875;&#x6A21;&#x677F;
+&#x2502;  package.json             # &#x9879;&#x76EE;&#x914D;&#x7F6E;
+&#x2502;  README.md                # &#x9879;&#x76EE;&#x8BF4;&#x660E;
+&#x2502;  webpack.config.js        # webpack &#x914D;&#x7F6E;&#x6587;&#x4EF6;
+&#x2502;
+&#x251C;&#x2500;output                    #&#x4E0A;&#x7EBF;&#x6587;&#x4EF6;
+&#x2502;  
+&#x251C;&#x2500;src                       
+&#x2502;  &#x2502;  app.js                # &#x542F;&#x52A8;&#x914D;&#x7F6E;&#xFF0C;&#x914D;&#x7F6E;&#x8DEF;&#x7531;&#xFF0C;&#x8FC7;&#x6EE4;&#x5668;
+&#x2502;  &#x2502;  App.vue               # &#x4E3B;vue
+&#x2502;  &#x2502;  routers.js            # &#x8DEF;&#x7531;
+&#x2502;  &#x2502;  
+&#x2502;  &#x251C;&#x2500;assets                 # &#x9759;&#x6001;&#x6587;&#x4EF6;
+&#x2502;  &#x2502;  &#x251C;&#x2500;css
+&#x2502;  &#x2502;  &#x251C;&#x2500;images
+&#x2502;  &#x2502;  &#x2514;&#x2500;lib
+&#x2502;  &#x2502;          
+&#x2502;  &#x251C;&#x2500;components             # &#x7EC4;&#x4EF6;
+&#x2502;  &#x251C;&#x2500;view                   # &#x6837;&#x5F0F;
+&#x2502;  &#x2514;&#x2500;views                  # &#x9875;&#x9762;
+&#x2502;           
+
+</pre>
+
+
+<h2 id="vue1-x-&#x9879;&#x76EE;"><a href="#vue1-x-&#x9879;&#x76EE;" class="headerlink" title="vue1.x &#x9879;&#x76EE;"></a>vue1.x &#x9879;&#x76EE;</h2><p>&#x57FA;&#x4E8E;vue1.x&#x5DF2;&#x4E0A;&#x7EBF;<a href="http://m.51jfgou.com/jgouINF/weixin/index.html#!/" target="_blank" rel="external">&#x79EF;&#x5206;&#x8D2D;&#x9879;&#x76EE;</a></p>
+<h2 id="vue2-x-Conde&#x793E;&#x533A;"><a href="#vue2-x-Conde&#x793E;&#x533A;" class="headerlink" title="vue2.x Conde&#x793E;&#x533A;"></a><a href="https://dodov.github.io/vueCnode/index.html#/" target="_blank" rel="external">vue2.x Conde&#x793E;&#x533A;</a></h2><p>vue2.x Cnode&#x793E;&#x533A;&#x662F;&#x57FA;&#x4E8E;vue&#x3001;vue-router&#x3001;vuex&#x3001;axios&#x3001;es6&#x5F00;&#x53D1;&#xFF0C;&#x4F7F;&#x7528;webpack&#x6784;&#x5EFA;&#x5DE5;&#x5177;&#x7F16;&#x8BD1;&#x6253;&#x5305;&#x9879;&#x76EE;</p>
+<p><a href="https://dodov.github.io/vueCnode/index.html#/" target="_blank" rel="external">&#x70B9;&#x51FB;&#x67E5;&#x770B;&#x6548;&#x679C;</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+<div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="/images/wechat.jpg" alt="vincentSea wechat" style="width: 200px; max-width: 100%;"/>
+    <div>一颗稻草的价值，到底是多少呢？想知道的话，就订阅吧！</div>
+</div>
+
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/demo/" rel="tag"># demo</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/08/Windows下Git客户端和Github设置/" rel="next" title="Windows下Git客户端和Github设置">
+                <i class="fa fa-chevron-left"></i> Windows下Git客户端和Github设置
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/02/22/少点jq多点js/" rel="prev" title="少点jq多点js">
+                少点jq多点js <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/16203604.jpg"
+               alt="vincentSea" />
+          <p class="site-author-name" itemprop="name">vincentSea</p>
+           
+              <p class="site-description motion-element" itemprop="description">一个来自文科班子的码农</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">26</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">分类</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">9</span>
+                <span class="site-state-item-name">标签</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/vincentSea" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/2235933440?refer_flag=1001030101_" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="https://juejin.im/user/56e17630731956005cb7f501" target="_blank" title="掘金">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  掘金
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#项目"><span class="nav-number">1.</span> <span class="nav-text">项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Github"><span class="nav-number">2.</span> <span class="nav-text">Github </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#示例"><span class="nav-number">3.</span> <span class="nav-text">示例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#说明"><span class="nav-number">4.</span> <span class="nav-text">说明</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#运行"><span class="nav-number">5.</span> <span class="nav-text">运行</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Mock-js"><span class="nav-number">6.</span> <span class="nav-text">Mock.js</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#目录结构"><span class="nav-number">7.</span> <span class="nav-text">目录结构</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue1-x-项目"><span class="nav-number">8.</span> <span class="nav-text">vue1.x 项目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#vue2-x-Conde社区"><span class="nav-number">9.</span> <span class="nav-text">vue2.x Conde社区</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy;  2016 - 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">vincentSea</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery/2.1.3/jquery.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fastclick/1.0.6/fastclick.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/jquery.lazyload/1.9.3/jquery.lazyload.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/velocity/1.2.3/velocity.ui.min.js"></script>
+
+  
+  <script type="text/javascript" src="//cdn.jsdelivr.net/fancybox/2.1.5/jquery.fancybox.pack.js"></script>
+
+
+<!-- dudodo.cc Baidu tongji analytics -->
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?f016dc5f4aaf617bc4f65b71b73cc257";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+<script type="text/javascript" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+<!--  -->
+
+  
+    
+    <script>
+      var cloudTieConfig = {
+        url: document.location.href, 
+        sourceId: "",
+        productKey: "f7ff3cf2ee114e7abad3793d8c8016e7",
+        target: "cloud-tie-wrapper"
+      };
+    </script>
+    <script src="https://img1.ws.126.net/f2e/tie/yun/sdk/loader.js"></script>
+  
+
+<!--   -->
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+
+</body>
+</html>
